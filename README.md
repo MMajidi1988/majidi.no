@@ -1,0 +1,2 @@
+# majidi.no
+My website
