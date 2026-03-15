@@ -57,7 +57,7 @@
 
         section{padding:8rem 2.5rem}.si{max-width:1200px;margin:0 auto}
         .sh{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:4rem}
-        .sn{font-family:var(--fm);font-size:.75rem;color:var(--acc)}.st{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.02em}.sl{flex:1;height:1px;background:var(--bdr)}
+        .st{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.02em}.sl{flex:1;height:1px;background:var(--bdr)}
 
         .ag{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start}
         .at{font-size:1.1rem;color:var(--dim);line-height:1.9;font-weight:200}.at p+p{margin-top:1.5rem}
@@ -89,6 +89,9 @@
         .t{font-family:var(--fm);font-size:.65rem;padding:.35rem .8rem;background:rgba(255,255,255,0.04);border:1px solid var(--bdr);border-radius:100px;color:var(--dim);transition:all .2s}
         .t:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-d)}
         .vc{margin-top:2rem;border-radius:12px;overflow:hidden;border:1px solid var(--bdr)}.vc video{width:100%;display:block}
+        .vg{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+        .vg-single{margin-top:2rem}
+        .vgl{font-family:var(--fm);font-size:.7rem;color:var(--acc);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1.5rem}
         .pers{margin-top:4rem;padding-top:3rem;border-top:1px solid var(--bdr)}
         .pers-ttl{font-family:var(--fd);font-size:1.25rem;font-weight:700;margin-bottom:1rem;color:var(--text)}
         .pers-txt p{font-size:1rem;color:var(--dim);line-height:1.85;font-weight:200}
@@ -132,7 +135,7 @@
         @keyframes pu{0%,100%{opacity:1}50%{opacity:.4}}
         .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 
-        @media(max-width:900px){.hi{grid-template-columns:1fr;gap:2rem}.hero-photo{order:-1;justify-self:center}.hero-photo img{width:200px;height:200px}
+        @media(max-width:900px){.hi{grid-template-columns:1fr;gap:2rem}.hero-photo{order:-1;justify-self:center}.hero-photo img{width:200px;height:200px}.vg{grid-template-columns:1fr}
             .nc{display:none}.nc.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(12,12,14,0.98);backdrop-filter:blur(24px);flex-direction:column;padding:2rem 2.5rem;gap:1.25rem;border-bottom:1px solid var(--bdr)}
             .mt{display:block}.ag{grid-template-columns:1fr;gap:3rem}.pg{grid-template-columns:1fr}.sg{grid-template-columns:1fr 1fr}
             .ei{grid-template-columns:1fr;gap:.5rem}.pi{flex-direction:column;gap:.75rem}.pim{align-items:flex-start;flex-direction:row}
@@ -166,7 +169,7 @@
             <div class="hi-l">
                 <div class="he"><span class="ln"></span><span data-en="Software Engineer & AI Engineer · Oslo, Norway" data-no="Programvareutvikler & AI-ingeniør · Oslo, Norge">Software Engineer & AI Engineer · Oslo, Norway</span></div>
                 <h1>Martin<br><span class="ol">Majidi</span></h1>
-                <p class="hs" data-en="Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision." data-no="Bygger intelligente systemer i skjæringspunktet mellom AI og programvareutvikling — fra produksjonsklare RAG-arkitekturer til sanntids datasyn.">Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision.</p>
+                <p class="hs" data-en="Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision." data-no="Bygger intelligente systemer i skjæringspunktet mellom AI og programvareutvikling — fra produksjonsklare RAG-arkitekturer til computer vision.">Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision.</p>
                 <div class="hc">
                     <a href="#contact" class="btn bp" data-en="Get in touch" data-no="Ta kontakt">Get in touch</a>
                     <a href="#projects" class="btn bg" data-en="View projects" data-no="Se prosjekter">View projects</a>
@@ -183,10 +186,10 @@
     </section>
 
     <section id="about"><div class="si reveal">
-        <div class="sh"><span class="sn">01</span><h2 class="st" data-en="About" data-no="Om meg">About</h2><span class="sl"></span></div>
+        <div class="sh"><h2 class="st" data-en="About" data-no="Om meg">About</h2><span class="sl"></span></div>
         <div class="ag">
             <div class="at">
-                <p data-en="Software Engineer with 5+ years of experience building production AI systems, backend services, and optimization algorithms. My work spans conversational AI with RAG architectures, computer vision for sports video processing, and large-scale API development." data-no="Programvareutvikler med over 5 års erfaring innen produksjonsklare AI-systemer, backend-tjenester og optimaliseringsalgoritmer. Arbeidet mitt spenner fra konversasjons-AI med RAG-arkitekturer, datasyn for sportsvideo-prosessering, til storskala API-utvikling.">Software Engineer with 5+ years of experience building production AI systems, backend services, and optimization algorithms. My work spans conversational AI with RAG architectures, computer vision for sports video processing, and large-scale API development.</p>
+                <p data-en="Software Engineer with 5+ years of experience building production AI systems, backend services, and optimization algorithms. My work spans conversational AI with RAG architectures, computer vision for sports video processing, and large-scale API development." data-no="Programvareutvikler med over 5 års erfaring innen produksjonsklare AI-systemer, backend-tjenester og optimaliseringsalgoritmer. Arbeidet mitt spenner fra konversasjons-AI med RAG-arkitekturer, computer vision for sportsvideo-prosessering, til storskala API-utvikling.">Software Engineer with 5+ years of experience building production AI systems, backend services, and optimization algorithms. My work spans conversational AI with RAG architectures, computer vision for sports video processing, and large-scale API development.</p>
                 <p data-en="I hold a Master's degree in Applied Computer and Information Technology with an AI specialization from Oslo Metropolitan University, where my thesis on AI-based sports video cropping earned the top grade and produced peer-reviewed publications at IEEE and ACM conferences." data-no="Jeg har en mastergrad i anvendt data- og informasjonsteknologi med spesialisering i AI fra OsloMet, hvor masteroppgaven min om AI-basert beskjæring av sportsvideoer fikk toppkarakter og resulterte i fagfellevurderte publikasjoner på IEEE- og ACM-konferanser.">I hold a Master's degree in Applied Computer and Information Technology with an AI specialization from Oslo Metropolitan University, where my thesis on AI-based sports video cropping earned the top grade and produced peer-reviewed publications at IEEE and ACM conferences.</p>
                 <p data-en="My background bridges Computer Science, Industrial Engineering, and Artificial Intelligence — allowing me to connect technical implementation with real-world problem solving." data-no="Min bakgrunn bygger bro mellom informatikk, industriell ingeniørvitenskap og kunstig intelligens — noe som gjør at jeg kan koble teknisk implementering med virkelig problemløsning.">My background bridges Computer Science, Industrial Engineering, and Artificial Intelligence — allowing me to connect technical implementation with real-world problem solving.</p>
             </div>
@@ -207,7 +210,7 @@
     </div></section>
 
     <section id="experience"><div class="si reveal">
-        <div class="sh"><span class="sn">02</span><h2 class="st" data-en="Experience" data-no="Erfaring">Experience</h2><span class="sl"></span></div>
+        <div class="sh"><h2 class="st" data-en="Experience" data-no="Erfaring">Experience</h2><span class="sl"></span></div>
         <div class="ei"><div class="ed">Aug 2024 – Mar 2026</div><div><div class="er">Software Engineer</div><div class="ec">Allente AS · Oslo</div><div class="edesc"><ul>
             <li data-en="Built full-stack HR Chatbot with RAG architecture using Spring Boot, OpenAI GPT-4o, and PostgreSQL vector search, serving employees across 4 Nordic countries" data-no="Utviklet fullstack HR-chatbot med RAG-arkitektur ved bruk av Spring Boot, OpenAI GPT-4o og PostgreSQL vektorsøk, som betjener ansatte i 4 nordiske land">Built full-stack HR Chatbot with RAG architecture using Spring Boot, OpenAI GPT-4o, and PostgreSQL vector search, serving employees across 4 Nordic countries</li>
             <li data-en="Maintained partner integration system processing subscription data across 6+ streaming platforms including Amazon Prime, Viaplay, and TV2" data-no="Vedlikeholdt partnerintegrasjonssystem som behandler abonnementsdata på tvers av 6+ strømmeplattformer inkludert Amazon Prime, Viaplay og TV2">Maintained partner integration system processing subscription data across 6+ streaming platforms including Amazon Prime, Viaplay, and TV2</li>
@@ -215,9 +218,9 @@
             <li data-en="Implemented GraphQL and REST APIs across microservices for customer data retrieval" data-no="Implementerte GraphQL og REST API-er på tvers av mikrotjenester for kundedatahenting">Implemented GraphQL and REST APIs across microservices for customer data retrieval</li>
         </ul></div></div></div>
         <div class="ei"><div class="ed">Jun 2023 – Jun 2024</div><div><div class="er">AI & ML Developer</div><div class="ec">Forzasys / SimulaMet · Oslo</div><div class="edesc"><ul>
-            <li data-en="Built end-to-end SmartCrop system for automatic sports video cropping with focal point detection and social media distribution API" data-no="Utviklet ende-til-ende SmartCrop-system for automatisk beskjæring av sportsvideoer med fokuspunktdeteksjon og API for distribusjon til sosiale medier">Built end-to-end SmartCrop system for automatic sports video cropping with focal point detection and social media distribution API</li>
-            <li data-en="Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls" data-no="Utviklet Flask-basert GUI for sanntids videoprosessering med interpolasjon og avvikskontroller">Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls</li>
-            <li data-en="Fine-tuned YOLO v8, v9, and RT-DETR models for real-time object detection achieving production-ready accuracy" data-no="Finjusterte YOLO v8, v9 og RT-DETR-modeller for sanntids objektdeteksjon med produksjonsklar nøyaktighet">Fine-tuned YOLO v8, v9, and RT-DETR models for real-time object detection achieving production-ready accuracy</li>
+            <li data-en="Built end-to-end SmartCrop system for automatic sports video cropping with focal point detection and social media distribution API" data-no="Utviklet ende-til-ende SmartCrop-system for automatisk beskjæring av sportsvideoer med focal point detection og API for distribusjon til sosiale medier">Built end-to-end SmartCrop system for automatic sports video cropping with focal point detection and social media distribution API</li>
+            <li data-en="Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls" data-no="Utviklet Flask-basert GUI for sanntids videoprosessering med interpolasjon og outlier controls">Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls</li>
+            <li data-en="Fine-tuned YOLO v8, v9, and RT-DETR models for real-time object detection achieving production-ready accuracy" data-no="Finjusterte YOLO v8, v9 og RT-DETR-modeller for real-time object detection med produksjonsklar nøyaktighet">Fine-tuned YOLO v8, v9, and RT-DETR models for real-time object detection achieving production-ready accuracy</li>
             <li data-en="Designed video processing pipeline for automatic reformatting to platform-specific aspect ratios" data-no="Designet videoprosesseringspipeline for automatisk omformatering til plattformspesifikke sideforhold">Designed video processing pipeline for automatic reformatting to platform-specific aspect ratios</li>
         </ul></div></div></div>
         <div class="ei"><div class="ed">2017 – 2021</div><div><div class="er">Optimization Developer</div><div class="ec">Espad Company · Iran</div><div class="edesc"><ul>
@@ -227,15 +230,27 @@
     </div></section>
 
     <section id="projects"><div class="si reveal">
-        <div class="sh"><span class="sn">03</span><h2 class="st" data-en="Projects" data-no="Prosjekter">Projects</h2><span class="sl"></span></div>
+        <div class="sh"><h2 class="st" data-en="Projects" data-no="Prosjekter">Projects</h2><span class="sl"></span></div>
         <div class="pg">
             <div class="pc f">
-                <div class="pt" data-en="Computer Vision · Featured" data-no="Datasyn · Fremhevet">Computer Vision · Featured</div>
+                <div class="pt" data-en="Computer Vision · Featured" data-no="Computer Vision · Fremhevet">Computer Vision · Featured</div>
                 <h3>SmartCrop — AI-Based Sports Video Cropping</h3>
-                <p data-en="End-to-end system for automatic cropping of sports videos (soccer and ice hockey) for social media. Fine-tuned YOLOv8/v9 and RT-DETR for real-time focal point detection. Built a Flask GUI with interpolation, outlier controls, and platform-specific aspect ratios. Resulted in 6 publications, 80+ citations, and a Best Paper Award nomination at ACM MMSys 2024." data-no="Ende-til-ende-system for automatisk beskjæring av sportsvideoer (fotball og ishockey) for sosiale medier. Finjusterte YOLOv8/v9 og RT-DETR for sanntids fokuspunktdeteksjon. Utviklet et Flask GUI med interpolasjon, avvikskontroller og plattformspesifikke sideforhold. Resulterte i 6 publikasjoner, 80+ siteringer og nominasjon til beste artikkel-pris på ACM MMSys 2024.">End-to-end system for automatic cropping of sports videos (soccer and ice hockey) for social media. Fine-tuned YOLOv8/v9 and RT-DETR for real-time focal point detection. Built a Flask GUI with interpolation, outlier controls, and platform-specific aspect ratios. Resulted in 6 publications, 80+ citations, and a Best Paper Award nomination at ACM MMSys 2024.</p>
+                <p data-en="End-to-end system for automatic cropping of sports videos (soccer and ice hockey) for social media. Fine-tuned YOLOv8/v9 and RT-DETR for real-time focal point detection. Built a Flask GUI with interpolation, outlier controls, and platform-specific aspect ratios. Resulted in 6 publications, 80+ citations, and a Best Paper Award nomination at ACM MMSys 2024." data-no="Ende-til-ende-system for automatisk beskjæring av sportsvideoer (fotball og ishockey) for sosiale medier. Finjusterte YOLOv8/v9 og RT-DETR for real-time focal point detection. Utviklet et Flask GUI med interpolasjon, outlier controls og plattformspesifikke sideforhold. Resulterte i 6 publikasjoner, 80+ siteringer og nominasjon til beste artikkel-pris på ACM MMSys 2024.">End-to-end system for automatic cropping of sports videos (soccer and ice hockey) for social media. Fine-tuned YOLOv8/v9 and RT-DETR for real-time focal point detection. Built a Flask GUI with interpolation, outlier controls, and platform-specific aspect ratios. Resulted in 6 publications, 80+ citations, and a Best Paper Award nomination at ACM MMSys 2024.</p>
                 <div class="tg"><span class="t">Python</span><span class="t">Flask</span><span class="t">YOLOv8/v9</span><span class="t">RT-DETR</span><span class="t">OpenCV</span></div>
-                <div class="vc"><video controls preload="metadata"><source src="SmartCrop_GUI_v2_0.mp4" type="video/mp4"></video>
-                <div class="vl"><span class="dot"></span><span data-en="SmartCrop GUI Demo — interpolation & outlier controls" data-no="SmartCrop GUI-demo — interpolasjon og avvikskontroller">SmartCrop GUI Demo — interpolation & outlier controls</span></div></div>
+                <div class="vgl" data-en="GUI Demos" data-no="GUI-demoer">GUI Demos</div>
+                <div class="vg">
+                    <div class="vc"><video controls preload="metadata"><source src="SmartCrop GUI_v1_0.mp4" type="video/mp4"></video>
+                    <div class="vl"><span class="dot"></span><span data-en="GUI v1 — Football" data-no="GUI v1 — Fotball">GUI v1 — Football</span></div></div>
+                    <div class="vc"><video controls preload="metadata"><source src="SmartCrop_GUI_v2_0.mp4" type="video/mp4"></video>
+                    <div class="vl"><span class="dot"></span><span data-en="GUI v2 — Ice Hockey" data-no="GUI v2 — Ishockey">GUI v2 — Ice Hockey</span></div></div>
+                </div>
+                <div class="vgl" data-en="Output Examples" data-no="Output-eksempler">Output Examples</div>
+                <div class="vg">
+                    <div class="vc"><video controls preload="metadata"><source src="SmartCrop - Soccer.mp4" type="video/mp4"></video>
+                    <div class="vl"><span class="dot"></span><span data-en="Football — cropped output" data-no="Fotball — beskjært output">Football — cropped output</span></div></div>
+                    <div class="vc"><video controls preload="metadata"><source src="SmartCrop - Hockey.mp4" type="video/mp4"></video>
+                    <div class="vl"><span class="dot"></span><span data-en="Ice Hockey — cropped output" data-no="Ishockey — beskjært output">Ice Hockey — cropped output</span></div></div>
+                </div>
             </div>
             <div class="pc">
                 <div class="pt" data-en="Conversational AI" data-no="Konversasjons-AI">Conversational AI</div>
@@ -259,7 +274,7 @@
     </div></section>
 
     <section id="publications"><div class="si reveal">
-        <div class="sh"><span class="sn">04</span><h2 class="st" data-en="Publications" data-no="Publikasjoner">Publications</h2><span class="sl"></span></div>
+        <div class="sh"><h2 class="st" data-en="Publications" data-no="Publikasjoner">Publications</h2><span class="sl"></span></div>
         <div class="ph">
             <div><div class="pn g">6</div><div class="pnl" data-en="Papers" data-no="Artikler">Papers</div></div>
             <div><div class="pn w">80</div><div class="pnl" data-en="Citations" data-no="Siteringer">Citations</div></div>
@@ -277,7 +292,7 @@
     </div></section>
 
     <section id="skills"><div class="si reveal">
-        <div class="sh"><span class="sn">05</span><h2 class="st" data-en="Tech Stack" data-no="Teknologi">Tech Stack</h2><span class="sl"></span></div>
+        <div class="sh"><h2 class="st" data-en="Tech Stack" data-no="Teknologi">Tech Stack</h2><span class="sl"></span></div>
         <div class="sg">
             <div class="sc"><h3 data-en="Languages" data-no="Programmeringsspråk">Languages</h3><ul><li>Java</li><li>Python</li><li>SQL</li><li>MATLAB</li></ul></div>
             <div class="sc"><h3>Frameworks & Tools</h3><ul><li>Spring Boot</li><li>Flask</li><li>REST APIs & GraphQL</li><li>PostgreSQL & pgvector</li><li>Docker</li></ul></div>
