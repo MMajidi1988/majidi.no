@@ -1,0 +1,55 @@
+/**
+ * About section
+ */
+
+.ag {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.at {
+  font-size: 1.05rem;
+  color: var(--dim);
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.at p + p {
+  margin-top: 1.5rem;
+}
+
+.ac {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.acd {
+  padding: 1.4rem 1.6rem;
+  background: rgba(19, 34, 56, 0.5);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r);
+  transition: all 0.4s;
+  backdrop-filter: blur(10px);
+}
+
+.acd:hover {
+  border-color: var(--bdr3);
+  background: rgba(59, 130, 246, 0.06);
+  transform: translateX(6px);
+}
+
+.acd .cl {
+  font-family: var(--fm);
+  font-size: 0.62rem;
+  color: var(--acc2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.3rem;
+}
+
+.acd .cv {
+  font-size: 0.95rem;
+  font-weight: 400;
+}

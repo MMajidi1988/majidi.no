@@ -1,0 +1,46 @@
+/**
+ * Design tokens and global variables
+ * majidi.no — Martin Majidi portfolio
+ */
+
+:root {
+  /* Backgrounds */
+  --bg: #060d18;
+  --bg2: #0c1829;
+  --bg3: #132238;
+  --bg4: #1a2d4a;
+
+  /* Text */
+  --text: #e8eef6;
+  --dim: #7b8fa8;
+  --dim2: #5a6f87;
+
+  /* Accent — blue */
+  --acc: #3b82f6;
+  --acc2: #60a5fa;
+  --acc3: #93c5fd;
+  --acc-d: rgba(59, 130, 246, 0.1);
+  --acc-g: rgba(59, 130, 246, 0.2);
+
+  /* Accent — warm */
+  --warm: #f59e0b;
+  --warm2: #fbbf24;
+
+  /* Effects */
+  --glow: rgba(59, 130, 246, 0.15);
+
+  /* Borders */
+  --bdr: rgba(255, 255, 255, 0.06);
+  --bdr2: rgba(255, 255, 255, 0.1);
+  --bdr3: rgba(59, 130, 246, 0.2);
+
+  /* Typography */
+  --fd: 'Playfair Display', Georgia, serif;
+  --fb: 'Inter', system-ui, sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+
+  /* Spacing / radius */
+  --r: 14px;
+  --r2: 20px;
+  --container-max: 1200px;
+}

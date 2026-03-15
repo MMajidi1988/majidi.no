@@ -1,0 +1,18 @@
+/**
+ * majidi.no — Main stylesheet
+ * Entry point: imports all partials and component styles
+ */
+
+@import 'variables.css';
+@import 'base.css';
+@import 'layout.css';
+@import 'components/nav.css';
+@import 'components/hero.css';
+@import 'components/about.css';
+@import 'components/experience.css';
+@import 'components/projects.css';
+@import 'components/publications.css';
+@import 'components/skills.css';
+@import 'components/contact.css';
+@import 'components/footer.css';
+@import 'utilities.css';

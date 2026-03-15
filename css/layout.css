@@ -1,0 +1,60 @@
+/**
+ * Section layout and structure
+ */
+
+section {
+  padding: 8rem 2.5rem;
+  position: relative;
+}
+
+.si {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.sec-div {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--bdr2) 20%,
+    var(--acc-d) 50%,
+    var(--bdr2) 80%,
+    transparent
+  );
+  margin: 0 auto;
+  max-width: var(--container-max);
+}
+
+.sh {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.st {
+  font-family: var(--fd);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sl {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--bdr2), transparent);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

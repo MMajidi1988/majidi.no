@@ -1,0 +1,189 @@
+/**
+ * Animations and responsive overrides
+ */
+
+@keyframes si {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pu {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--acc);
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 4px var(--acc);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -40px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 30px) scale(0.95);
+  }
+  75% {
+    transform: translate(40px, 20px) scale(1.02);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hi {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-photo {
+    order: -1;
+    justify-self: center;
+  }
+
+  .hero-photo img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .vg {
+    grid-template-columns: 1fr;
+  }
+
+  .nc {
+    display: none;
+  }
+
+  .nc.open {
+    display: flex;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(6, 13, 24, 0.96);
+    backdrop-filter: blur(24px);
+    flex-direction: column;
+    padding: 2rem 2.5rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--bdr);
+  }
+
+  .mt {
+    display: block;
+  }
+
+  .ag {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .pg {
+    grid-template-columns: 1fr;
+  }
+
+  .sg {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ei {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .pi {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pim {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .ph {
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .hst {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+  }
+
+  .hc {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orb-2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orb-3 {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sg {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 5rem 1.5rem;
+  }
+
+  .ni {
+    padding: 0 1.5rem;
+  }
+
+  .ph {
+    gap: 1.5rem;
+    justify-content: space-around;
+  }
+}

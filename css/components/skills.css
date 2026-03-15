@@ -1,0 +1,69 @@
+/**
+ * Skills / Tech stack section
+ */
+
+.sg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.sc {
+  padding: 2rem;
+  background: rgba(19, 34, 56, 0.4);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r2);
+  transition: all 0.4s;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.sc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--acc), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sc:hover {
+  border-color: var(--bdr3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.sc:hover::before {
+  opacity: 1;
+}
+
+.sc h3 {
+  font-family: var(--fm);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--acc2);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--bdr);
+}
+
+.sc ul {
+  list-style: none;
+}
+
+.sc li {
+  font-size: 0.88rem;
+  color: var(--dim);
+  font-weight: 300;
+  padding: 0.35rem 0;
+  transition: all 0.3s;
+}
+
+.sc:hover li {
+  color: var(--text);
+}

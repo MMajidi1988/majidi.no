@@ -1,0 +1,72 @@
+/**
+ * Experience section
+ */
+
+#experience {
+  background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+}
+
+.ei {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--bdr);
+  transition: all 0.4s;
+}
+
+.ei:first-of-type {
+  padding-top: 0;
+}
+
+.ei:last-child {
+  border-bottom: none;
+}
+
+.ei:hover {
+  padding-left: 1.5rem;
+  border-bottom-color: var(--bdr3);
+}
+
+.ed {
+  font-family: var(--fm);
+  font-size: 0.75rem;
+  color: var(--dim2);
+  padding-top: 0.3rem;
+}
+
+.er {
+  font-family: var(--fd);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.ec {
+  font-size: 0.88rem;
+  color: var(--acc2);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.edesc {
+  color: var(--dim);
+  font-size: 0.9rem;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+.edesc li {
+  list-style: none;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.edesc li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--acc2);
+  font-weight: 700;
+}

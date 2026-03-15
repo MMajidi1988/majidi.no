@@ -1,0 +1,136 @@
+/**
+ * Navigation and scroll progress
+ */
+
+.scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--acc), var(--acc2), var(--warm));
+  z-index: 10001;
+  transition: width 0.1s linear;
+  width: 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(6, 13, 24, 0.75);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border-bottom: 1px solid var(--bdr);
+  transition: all 0.3s;
+}
+
+nav.scrolled {
+  background: rgba(6, 13, 24, 0.92);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ni {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nc {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nc a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--dim);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.nc a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--acc);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nc a:hover,
+.nc a.active {
+  color: var(--acc2);
+}
+
+.nc a:hover::after,
+.nc a.active::after {
+  width: 100%;
+}
+
+.nr {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lt {
+  display: flex;
+  background: var(--bg3);
+  border: 1px solid var(--bdr2);
+  border-radius: 100px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.lb {
+  padding: 0.35rem 0.85rem;
+  font-family: var(--fm);
+  font-size: 0.68rem;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.04em;
+  border-radius: 100px;
+}
+
+.lb.active {
+  background: var(--acc);
+  color: #fff;
+  box-shadow: 0 2px 10px var(--acc-g);
+}
+
+.mt {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.mt span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}

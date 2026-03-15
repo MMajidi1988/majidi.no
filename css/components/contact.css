@@ -1,0 +1,115 @@
+/**
+ * Contact section
+ */
+
+#contact {
+  background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.06),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.ci {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ci .bt {
+  font-family: var(--fd);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.ci .bt .at2 {
+  background: linear-gradient(135deg, var(--acc2), var(--warm2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.ci .sb {
+  font-size: 1.05rem;
+  color: var(--dim);
+  font-weight: 300;
+  line-height: 1.85;
+  margin-bottom: 3rem;
+}
+
+.cg {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--bdr);
+  border-radius: 100px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 400;
+  transition: all 0.3s;
+  background: rgba(19, 34, 56, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.cb svg {
+  width: 15px;
+  height: 15px;
+}
+
+.cb:hover {
+  border-color: var(--acc);
+  color: var(--acc2);
+  background: var(--acc-d);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cvdl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.cvdl-lbl {
+  font-size: 0.72rem;
+  color: var(--dim2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.cvdl-btns {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

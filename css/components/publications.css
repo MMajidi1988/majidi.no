@@ -1,0 +1,129 @@
+/**
+ * Publications section
+ */
+
+#publications {
+  background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+}
+
+.ph {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  padding: 2.5rem 3rem;
+  background: rgba(19, 34, 56, 0.4);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r2);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+}
+
+.ph > div {
+  text-align: center;
+  min-width: 80px;
+}
+
+.pn {
+  font-family: var(--fd);
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pn.g {
+  background: linear-gradient(135deg, var(--acc), var(--acc3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pn.w {
+  background: linear-gradient(135deg, var(--warm), var(--warm2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pnl {
+  font-size: 0.72rem;
+  color: var(--dim2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.pl {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pi {
+  padding: 1.4rem 2rem;
+  border: 1px solid var(--bdr);
+  border-radius: var(--r);
+  transition: all 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 2rem;
+  background: rgba(19, 34, 56, 0.2);
+}
+
+.pi:hover {
+  border-color: var(--bdr3);
+  background: rgba(59, 130, 246, 0.04);
+  padding-left: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pi h4 {
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.pi h4 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pi:hover h4 a {
+  color: var(--acc2);
+}
+
+.pim {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.pv {
+  font-size: 0.72rem;
+  color: var(--dim2);
+  font-style: italic;
+}
+
+.pci {
+  font-family: var(--fm);
+  font-size: 0.65rem;
+  color: var(--acc2);
+  background: var(--acc-d);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.pa {
+  font-family: var(--fm);
+  font-size: 0.62rem;
+  color: var(--warm);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid rgba(245, 158, 11, 0.15);
+}
