@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Majidi — Software Engineer</title>
+    <title>Martin Majidi — Software Engineer & AI Engineer</title>
     <meta name="description" content="Software Engineer specializing in AI systems, RAG architectures, and computer vision. Based in Oslo, Norway.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,6 @@
 
         nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(12,12,14,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
         .ni{max-width:1200px;margin:0 auto;padding:0 2.5rem;height:72px;display:flex;align-items:center;justify-content:space-between}
-        .logo{font-family:var(--fm);font-size:.85rem;font-weight:500;color:var(--acc);text-decoration:none}
         .nc{display:flex;gap:2.5rem;list-style:none}
         .nc a{font-size:.78rem;font-weight:400;color:var(--dim);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .3s;position:relative}
         .nc a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--acc);transition:width .3s}
@@ -39,7 +38,11 @@
         .hero{min-height:100vh;display:flex;align-items:center;padding:0 2.5rem;position:relative;overflow:hidden}
         .hbg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 40%,rgba(100,255,170,0.06)0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 60%,rgba(255,184,108,0.04)0%,transparent 60%);pointer-events:none}
         .hgl{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
-        .hi{max-width:1200px;margin:0 auto;width:100%;padding-top:72px;position:relative;z-index:1}
+        .hi{max-width:1200px;margin:0 auto;width:100%;padding-top:72px;position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+        .hi-l{min-width:0}
+        .hero-photo{position:relative;flex-shrink:0;opacity:0;animation:si .8s ease .5s forwards}
+        .hero-photo::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--warm));opacity:.5;z-index:-1;filter:blur(24px)}
+        .hero-photo img{width:280px;height:280px;object-fit:cover;border-radius:50%;border:2px solid rgba(100,255,170,0.4);box-shadow:0 0 50px var(--acc-g),0 0 0 1px rgba(255,255,255,0.05);display:block}
         .he{font-family:var(--fm);font-size:.78rem;color:var(--acc);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;opacity:0;animation:si .8s ease .2s forwards}
         .he .ln{width:40px;height:1px;background:var(--acc)}
         .hero h1{font-family:var(--fd);font-size:clamp(3.5rem,8vw,7rem);font-weight:900;line-height:.95;letter-spacing:-.03em;margin-bottom:2rem;opacity:0;animation:si .8s ease .4s forwards}
@@ -100,7 +103,7 @@
         .pl{display:grid;gap:1rem}
         .pi{padding:1.5rem 2rem;border:1px solid var(--bdr);border-radius:var(--r);transition:all .3s;display:flex;justify-content:space-between;align-items:start;gap:2rem}
         .pi:hover{border-color:var(--bdr2);background:var(--bg3);padding-left:2.5rem}
-        .pi h4{font-size:.95rem;font-weight:400;line-height:1.5;flex:1}
+        .pi h4{font-size:.95rem;font-weight:400;line-height:1.5;flex:1}.pi h4 a{color:inherit;text-decoration:none;transition:color .2s}.pi:hover h4 a{color:var(--acc)}
         .pim{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0}
         .pv{font-size:.75rem;color:var(--dim);font-style:italic}
         .pci{font-family:var(--fm);font-size:.68rem;color:var(--acc);background:var(--acc-d);padding:.25rem .65rem;border-radius:100px}
@@ -121,6 +124,7 @@
         .cb{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.8rem;border:1px solid var(--bdr);border-radius:100px;text-decoration:none;color:var(--text);font-size:.88rem;font-weight:400;transition:all .3s}
         .cb svg{width:16px;height:16px}
         .cb:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-d);transform:translateY(-2px)}
+        .cvdl{display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-bottom:2rem}.cvdl-lbl{font-size:.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}.cvdl-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
 
         footer{padding:3rem 2.5rem;text-align:center;border-top:1px solid var(--bdr)}
         footer p{font-family:var(--fm);font-size:.72rem;color:var(--dim)}
@@ -129,7 +133,7 @@
         @keyframes pu{0%,100%{opacity:1}50%{opacity:.4}}
         .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 
-        @media(max-width:900px){.pers{grid-template-columns:1fr;gap:2rem}
+        @media(max-width:900px){.hi{grid-template-columns:1fr;gap:2rem}.hero-photo{order:-1;justify-self:center}.hero-photo img{width:200px;height:200px}.pers{grid-template-columns:1fr;gap:2rem}
             .nc{display:none}.nc.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(12,12,14,0.98);backdrop-filter:blur(24px);flex-direction:column;padding:2rem 2.5rem;gap:1.25rem;border-bottom:1px solid var(--bdr)}
             .mt{display:block}.ag{grid-template-columns:1fr;gap:3rem}.pg{grid-template-columns:1fr}.sg{grid-template-columns:1fr 1fr}
             .ei{grid-template-columns:1fr;gap:.5rem}.pi{flex-direction:column;gap:.75rem}.pim{align-items:flex-start;flex-direction:row}
@@ -140,7 +144,6 @@
 </head>
 <body>
     <nav><div class="ni">
-        <a href="#" class="logo">&lt;martin.majidi /&gt;</a>
         <ul class="nc" id="navLinks">
             <li><a href="#about" data-en="About" data-no="Om meg">About</a></li>
             <li><a href="#experience" data-en="Experience" data-no="Erfaring">Experience</a></li>
@@ -161,19 +164,22 @@
     <section class="hero">
         <div class="hbg"></div><div class="hgl"></div>
         <div class="hi">
-            <div class="he"><span class="ln"></span><span data-en="Software Engineer · Oslo, Norway" data-no="Programvareutvikler · Oslo, Norge">Software Engineer · Oslo, Norway</span></div>
-            <h1>Martin<br><span class="ol">Majidi</span></h1>
-            <p class="hs" data-en="Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision." data-no="Bygger intelligente systemer i skjæringspunktet mellom AI og programvareutvikling — fra produksjonsklare RAG-arkitekturer til sanntids datasyn.">Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision.</p>
-            <div class="hc">
-                <a href="#contact" class="btn bp" data-en="Get in touch" data-no="Ta kontakt">Get in touch</a>
-                <a href="#projects" class="btn bg" data-en="View projects" data-no="Se prosjekter">View projects</a>
+            <div class="hi-l">
+                <div class="he"><span class="ln"></span><span data-en="Software Engineer & AI Engineer · Oslo, Norway" data-no="Programvareutvikler & AI-ingeniør · Oslo, Norge">Software Engineer & AI Engineer · Oslo, Norway</span></div>
+                <h1>Martin<br><span class="ol">Majidi</span></h1>
+                <p class="hs" data-en="Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision." data-no="Bygger intelligente systemer i skjæringspunktet mellom AI og programvareutvikling — fra produksjonsklare RAG-arkitekturer til sanntids datasyn.">Building intelligent systems at the intersection of AI and software engineering — from production RAG architectures to real-time computer vision.</p>
+                <div class="hc">
+                    <a href="#contact" class="btn bp" data-en="Get in touch" data-no="Ta kontakt">Get in touch</a>
+                    <a href="#projects" class="btn bg" data-en="View projects" data-no="Se prosjekter">View projects</a>
+                </div>
+                <div class="hst">
+                    <div><div class="n">5<span class="p">+</span></div><div class="d" data-en="Years Experience" data-no="Års erfaring">Years Experience</div></div>
+                    <div><div class="n">6</div><div class="d" data-en="Publications" data-no="Publikasjoner">Publications</div></div>
+                    <div><div class="n">80<span class="p">+</span></div><div class="d" data-en="Citations" data-no="Siteringer">Citations</div></div>
+                    <div><div class="n">4</div><div class="d" data-en="Countries Served" data-no="Land med erfaring">Countries Served</div></div>
+                </div>
             </div>
-            <div class="hst">
-                <div><div class="n">5<span class="p">+</span></div><div class="d" data-en="Years Experience" data-no="Års erfaring">Years Experience</div></div>
-                <div><div class="n">6</div><div class="d" data-en="Publications" data-no="Publikasjoner">Publications</div></div>
-                <div><div class="n">80<span class="p">+</span></div><div class="d" data-en="Citations" data-no="Siteringer">Citations</div></div>
-                <div><div class="n">4</div><div class="d" data-en="Countries Served" data-no="Land betjent">Countries Served</div></div>
-            </div>
+            <div class="hero-photo"><img src="Martinpic.png" alt="Martin Majidi"></div>
         </div>
     </section>
 
@@ -197,7 +203,7 @@
             <div class="pers-img"><img src="Martin-Peik.jpg" alt="Martin with Peik" loading="lazy"></div>
             <div class="pers-txt">
                 <h3 class="pers-ttl" data-en="A bit about Martin" data-no="Litt om Martin">A bit about Martin</h3>
-                <p data-en="Martin was born and raised in Esfahan, Iran, and moved to Norway in 2022 to pursue a Master's in Computer Science/AI. He joined Allente, bought an apartment in Oppsal, and got his dog Peik. After Allente was acquired by ViaPlay, the company underwent significant downsizing and over half of the technical staff were made redundant, including Martin. To continue living in Norway—which matters greatly to him—he is looking for a new role. He uses Norwegian in daily life and is learning quickly, with a goal of speaking fluently by summer. He prefers roles in or near Oslo but is open to relocating elsewhere in Norway." data-no="Martin er født og oppvokst i Esfahan i Iran, og flyttet i 2022 til Norge for å ta en mastergrad i informatikk/AI. Han fikk jobb i Allente, kjøpte leilighet på Oppsal og fikk hunden Peik. Etter at Allente ble overtatt av ViaPlay, ble Allente gjenstand for en kraftig nedbemamming der over halvpartene av de teknisk ansatte ble overtallige, inkludet Martin. For å kunne fortsette å bo i Norge, som er hans største ønske, trenger han ny jobb. Han behersker norsk til hverdagsbruk, men lærer raskt og målet er å snakke flytende norsk innen sommeren. Han vil helst ha jobb i eller nær Oslo, men er også åpen for å flytte andre steder i landet.">Martin was born and raised in Esfahan, Iran, and moved to Norway in 2022 to pursue a Master's in Computer Science/AI. He joined Allente, bought an apartment in Oppsal, and got his dog Peik. After Allente was acquired by ViaPlay, the company underwent significant downsizing and over half of the technical staff were made redundant, including Martin. To continue living in Norway—which matters greatly to him—he is looking for a new role. He uses Norwegian in daily life and is learning quickly, with a goal of speaking fluently by summer. He prefers roles in or near Oslo but is open to relocating elsewhere in Norway.</p>
+                <p data-en="Martin was born and raised in Esfahan, Iran, and moved to Norway in 2022 to pursue a Master's in Computer Science/AI. He joined Allente, bought an apartment in Oppsal, and got his dog Peik. After Allente was acquired by ViaPlay, the company underwent significant downsizing and over half of the technical staff were made redundant, including Martin. To continue living in Norway—which matters greatly to him—he is looking for a new role. He uses Norwegian in daily life and is learning quickly, with a goal of speaking fluently by summer. He prefers roles in or near Oslo but is open to relocating elsewhere in Norway." data-no="Martin er født og oppvokst i Esfahan i Iran, og flyttet i 2022 til Norge for å ta en mastergrad i informatikk/AI. Han fikk jobb i Allente, kjøpte leilighet på Oppsal og fikk hunden Peik. Etter at Allente ble overtatt av ViaPlay, ble selskapet rammet av en kraftig nedbemanning der over halvparten av de tekniske ansatte ble sagt opp, inkludert Martin. For å kunne fortsette å bo i Norge, som er hans største ønske, trenger han ny jobb. Han behersker norsk til hverdagsbruk, men lærer raskt og målet er å snakke flytende norsk innen sommeren. Han ønsker helst jobb i eller nær Oslo, men er også åpen for å flytte andre steder i landet.">Martin was born and raised in Esfahan, Iran, and moved to Norway in 2022 to pursue a Master's in Computer Science/AI. He joined Allente, bought an apartment in Oppsal, and got his dog Peik. After Allente was acquired by ViaPlay, the company underwent significant downsizing and over half of the technical staff were made redundant, including Martin. To continue living in Norway—which matters greatly to him—he is looking for a new role. He uses Norwegian in daily life and is learning quickly, with a goal of speaking fluently by summer. He prefers roles in or near Oslo but is open to relocating elsewhere in Norway.</p>
             </div>
         </div>
     </div></section>
@@ -212,7 +218,7 @@
         </ul></div></div></div>
         <div class="ei"><div class="ed">Jun 2023 – Jun 2024</div><div><div class="er">AI & ML Developer</div><div class="ec">Forzasys / SimulaMet · Oslo</div><div class="edesc"><ul>
             <li data-en="Built end-to-end SmartCrop system for automatic sports video cropping with focal point detection and social media distribution API" data-no="Utviklet ende-til-ende SmartCrop-system for automatisk beskjæring av sportsvideoer med fokuspunktdeteksjon og API for distribusjon til sosiale medier">Built end-to-end SmartCrop system for automatic sports video cropping with focal point detection and social media distribution API</li>
-            <li data-en="Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls" data-no="Utviklet Flask-basert GUI for sanntids videoprosessering med interpolasjons- og avvikskonfigurasjonskontroller">Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls</li>
+            <li data-en="Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls" data-no="Utviklet Flask-basert GUI for sanntids videoprosessering med interpolasjon og avvikskontroller">Developed Flask-based GUI for real-time video processing with interpolation and outlier configuration controls</li>
             <li data-en="Fine-tuned YOLO v8, v9, and RT-DETR models for real-time object detection achieving production-ready accuracy" data-no="Finjusterte YOLO v8, v9 og RT-DETR-modeller for sanntids objektdeteksjon med produksjonsklar nøyaktighet">Fine-tuned YOLO v8, v9, and RT-DETR models for real-time object detection achieving production-ready accuracy</li>
             <li data-en="Designed video processing pipeline for automatic reformatting to platform-specific aspect ratios" data-no="Designet videoprosesseringspipeline for automatisk omformatering til plattformspesifikke sideforhold">Designed video processing pipeline for automatic reformatting to platform-specific aspect ratios</li>
         </ul></div></div></div>
@@ -231,7 +237,7 @@
                 <p data-en="End-to-end system for automatic cropping of sports videos (soccer and ice hockey) for social media. Fine-tuned YOLOv8/v9 and RT-DETR for real-time focal point detection. Built a Flask GUI with interpolation, outlier controls, and platform-specific aspect ratios. Resulted in 6 publications, 80+ citations, and a Best Paper Award nomination at ACM MMSys 2024." data-no="Ende-til-ende-system for automatisk beskjæring av sportsvideoer (fotball og ishockey) for sosiale medier. Finjusterte YOLOv8/v9 og RT-DETR for sanntids fokuspunktdeteksjon. Utviklet et Flask GUI med interpolasjon, avvikskontroller og plattformspesifikke sideforhold. Resulterte i 6 publikasjoner, 80+ siteringer og nominasjon til beste artikkel-pris på ACM MMSys 2024.">End-to-end system for automatic cropping of sports videos (soccer and ice hockey) for social media. Fine-tuned YOLOv8/v9 and RT-DETR for real-time focal point detection. Built a Flask GUI with interpolation, outlier controls, and platform-specific aspect ratios. Resulted in 6 publications, 80+ citations, and a Best Paper Award nomination at ACM MMSys 2024.</p>
                 <div class="tg"><span class="t">Python</span><span class="t">Flask</span><span class="t">YOLOv8/v9</span><span class="t">RT-DETR</span><span class="t">OpenCV</span></div>
                 <div class="vc"><video controls preload="metadata"><source src="SmartCrop_GUI_v2_0.mp4" type="video/mp4"></video>
-                <div class="vl"><span class="dot"></span><span data-en="SmartCrop GUI Demo — interpolation & outlier controls" data-no="SmartCrop GUI-demo — interpolasjons- og avvikskontroller">SmartCrop GUI Demo — interpolation & outlier controls</span></div></div>
+                <div class="vl"><span class="dot"></span><span data-en="SmartCrop GUI Demo — interpolation & outlier controls" data-no="SmartCrop GUI-demo — interpolasjon og avvikskontroller">SmartCrop GUI Demo — interpolation & outlier controls</span></div></div>
             </div>
             <div class="pc">
                 <div class="pt" data-en="Conversational AI" data-no="Konversasjons-AI">Conversational AI</div>
@@ -263,12 +269,12 @@
             <div><div class="pn w">4</div><div class="pnl">i10-index</div></div>
         </div>
         <div class="pl">
-            <div class="pi"><h4>AI-based sports highlight generation for social media</h4><div class="pim"><span class="pv">Mile-High Video Conf., 2024</span><span class="pci">29 cited</span></div></div>
-            <div class="pi"><h4>Soccer on social media</h4><div class="pim"><span class="pv">arXiv preprint, 2023</span><span class="pci">18 cited</span></div></div>
-            <div class="pi"><h4>AI-based cropping of soccer videos for different social media representations</h4><div class="pim"><span class="pv">Int. Conf. Multimedia Modeling, 2024</span><span class="pci">15 cited</span></div></div>
-            <div class="pi"><h4>SmartCrop: AI-based cropping of soccer videos</h4><div class="pim"><span class="pv">IEEE ISM, 2023</span><span class="pci">10 cited</span></div></div>
-            <div class="pi"><h4>SmartCrop-H: AI-Based Cropping of Ice Hockey Videos</h4><div class="pim"><span class="pv">ACM MMSys, 2024</span><span class="pci">5 cited</span><span class="pa">★ Best Paper Nominee</span></div></div>
-            <div class="pi"><h4>Bi-objective optimization of basic and extended warranty policies</h4><div class="pim"><span class="pv">Life Cycle Reliability, 2020</span><span class="pci">3 cited</span></div></div>
+            <div class="pi"><h4><a href="https://dl.acm.org/doi/abs/10.1145/3638036.3640799" target="_blank" rel="noopener">AI-based sports highlight generation for social media</a></h4><div class="pim"><span class="pv">Mile-High Video Conf., 2024</span><span class="pci">29 cited</span></div></div>
+            <div class="pi"><h4><a href="https://arxiv.org/abs/2310.12328" target="_blank" rel="noopener">Soccer on social media</a></h4><div class="pim"><span class="pv">arXiv preprint, 2023</span><span class="pci">18 cited</span></div></div>
+            <div class="pi"><h4><a href="https://link.springer.com/chapter/10.1007/978-3-031-53302-0_22" target="_blank" rel="noopener">AI-based cropping of soccer videos for different social media representations</a></h4><div class="pim"><span class="pv">Int. Conf. Multimedia Modeling, 2024</span><span class="pci">15 cited</span></div></div>
+            <div class="pi"><h4><a href="https://ieeexplore.ieee.org/abstract/document/10473471/" target="_blank" rel="noopener">SmartCrop: AI-based cropping of soccer videos</a></h4><div class="pim"><span class="pv">IEEE ISM, 2023</span><span class="pci">10 cited</span></div></div>
+            <div class="pi"><h4><a href="https://dl.acm.org/doi/abs/10.1145/3625468.3652195" target="_blank" rel="noopener">SmartCrop-H: AI-Based Cropping of Ice Hockey Videos</a></h4><div class="pim"><span class="pv">ACM MMSys, 2024</span><span class="pci">5 cited</span><span class="pa">★ Best Paper Nominee</span></div></div>
+            <div class="pi"><h4><a href="https://link.springer.com/article/10.1007/s41872-020-00128-x" target="_blank" rel="noopener">Bi-objective optimization of basic and extended warranty policies regarding preventive maintenance and burn-in policies: Weibull bathtub-shaped failure rate</a></h4><div class="pim"><span class="pv">Life Cycle Reliability, 2020</span><span class="pci">3 cited</span></div></div>
         </div>
     </div></section>
 
@@ -288,8 +294,16 @@
         <div class="ci">
             <div class="bt" data-en="Let's build something <span class='at2'>together</span>" data-no="La oss bygge noe <span class='at2'>sammen</span>">Let's build something <span class="at2">together</span></div>
             <p class="sb" data-en="I'm currently exploring new opportunities in software engineering and AI. If you're working on something interesting, I'd love to hear about it." data-no="Jeg ser for tiden etter nye muligheter innen programvareutvikling og AI. Hvis du jobber med noe spennende, vil jeg gjerne høre om det.">I'm currently exploring new opportunities in software engineering and AI. If you're working on something interesting, I'd love to hear about it.</p>
+            <div class="cvdl">
+                <span class="cvdl-lbl" data-en="Download CV" data-no="Last ned CV">Download CV</span>
+                <div class="cvdl-btns">
+                    <a href="Martin_Majidi_CV.pdf" class="cb" download><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-en="CV (English)" data-no="CV (engelsk)">CV (English)</span></a>
+                    <a href="Martin_Majidi_CV_norsk.pdf" class="cb" download><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-en="CV (Norwegian)" data-no="CV (norsk)">CV (Norwegian)</span></a>
+                </div>
+            </div>
             <div class="cg">
                 <a href="mailto:martin@majidi.no" class="cb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>martin@majidi.no</a>
+                <a href="tel:+4746376549" class="cb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+47 463 76 549</a>
                 <a href="https://www.linkedin.com/in/martin-majidi/" class="cb" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
                 <a href="https://github.com/MMajidi1988" class="cb" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
                 <a href="https://scholar.google.com/citations?user=s264MOUAAAAJ" class="cb" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Google Scholar</a>
