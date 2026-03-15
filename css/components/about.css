@@ -53,3 +53,27 @@
   font-size: 0.95rem;
   font-weight: 400;
 }
+
+.acd .education-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.acd .education-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.acd .education-list li:last-child {
+  margin-bottom: 0;
+}
+
+.acd .education-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--acc);
+  font-weight: 700;
+}
