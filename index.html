@@ -86,6 +86,10 @@
         .t{font-family:var(--fm);font-size:.65rem;padding:.35rem .8rem;background:rgba(255,255,255,0.04);border:1px solid var(--bdr);border-radius:100px;color:var(--dim);transition:all .2s}
         .t:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-d)}
         .vc{margin-top:2rem;border-radius:12px;overflow:hidden;border:1px solid var(--bdr)}.vc video{width:100%;display:block}
+        .pers{display:grid;grid-template-columns:minmax(200px,320px) 1fr;gap:3rem;align-items:start;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--bdr)}
+        .pers-img{border-radius:var(--r);overflow:hidden;border:1px solid var(--bdr)}.pers-img img{width:100%;height:auto;display:block;object-fit:cover}
+        .pers-ttl{font-family:var(--fd);font-size:1.25rem;font-weight:700;margin-bottom:1rem;color:var(--text)}
+        .pers-txt p{font-size:1rem;color:var(--dim);line-height:1.85;font-weight:200}
         .vl{padding:.75rem 1.25rem;background:rgba(255,255,255,0.03);font-family:var(--fm);font-size:.72rem;color:var(--dim);display:flex;align-items:center;gap:.6rem;border-top:1px solid var(--bdr)}
         .vl .dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:pu 2s infinite}
 
@@ -125,7 +129,7 @@
         @keyframes pu{0%,100%{opacity:1}50%{opacity:.4}}
         .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 
-        @media(max-width:900px){
+        @media(max-width:900px){.pers{grid-template-columns:1fr;gap:2rem}
             .nc{display:none}.nc.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(12,12,14,0.98);backdrop-filter:blur(24px);flex-direction:column;padding:2rem 2.5rem;gap:1.25rem;border-bottom:1px solid var(--bdr)}
             .mt{display:block}.ag{grid-template-columns:1fr;gap:3rem}.pg{grid-template-columns:1fr}.sg{grid-template-columns:1fr 1fr}
             .ei{grid-template-columns:1fr;gap:.5rem}.pi{flex-direction:column;gap:.75rem}.pim{align-items:flex-start;flex-direction:row}
@@ -187,6 +191,13 @@
                 <div class="acd"><div class="cl" data-en="Research" data-no="Forskning">Research</div><div class="cv" data-en="6 papers · 80 citations · h-index 5" data-no="6 artikler · 80 siteringer · h-indeks 5">6 papers · 80 citations · h-index 5</div></div>
                 <div class="acd"><div class="cl" data-en="Certification" data-no="Sertifisering">Certification</div><div class="cv">AWS Technical Essentials</div></div>
                 <div class="acd"><div class="cl" data-en="Languages" data-no="Språk">Languages</div><div class="cv" data-en="English · Norwegian · Persian" data-no="Engelsk · Norsk · Persisk">English · Norwegian · Persian</div></div>
+            </div>
+        </div>
+        <div class="pers">
+            <div class="pers-img"><img src="Martin-Peik.jpg" alt="Martin with Peik" loading="lazy"></div>
+            <div class="pers-txt">
+                <h3 class="pers-ttl" data-en="A bit about Martin" data-no="Litt om Martin">A bit about Martin</h3>
+                <p data-en="Martin was born and raised in Esfahan, Iran, and moved to Norway in 2022 to pursue a Master's in Computer Science/AI. He joined Allente, bought an apartment in Oppsal, and got his dog Peik. After Allente was acquired by ViaPlay, the company underwent significant downsizing and over half of the technical staff were made redundant, including Martin. To continue living in Norway—which matters greatly to him—he is looking for a new role. He uses Norwegian in daily life and is learning quickly, with a goal of speaking fluently by summer. He prefers roles in or near Oslo but is open to relocating elsewhere in Norway." data-no="Martin er født og oppvokst i Esfahan i Iran, og flyttet i 2022 til Norge for å ta en mastergrad i informatikk/AI. Han fikk jobb i Allente, kjøpte leilighet på Oppsal og fikk hunden Peik. Etter at Allente ble overtatt av ViaPlay, ble Allente gjenstand for en kraftig nedbemamming der over halvpartene av de teknisk ansatte ble overtallige, inkludet Martin. For å kunne fortsette å bo i Norge, som er hans største ønske, trenger han ny jobb. Han behersker norsk til hverdagsbruk, men lærer raskt og målet er å snakke flytende norsk innen sommeren. Han vil helst ha jobb i eller nær Oslo, men er også åpen for å flytte andre steder i landet.">Martin was born and raised in Esfahan, Iran, and moved to Norway in 2022 to pursue a Master's in Computer Science/AI. He joined Allente, bought an apartment in Oppsal, and got his dog Peik. After Allente was acquired by ViaPlay, the company underwent significant downsizing and over half of the technical staff were made redundant, including Martin. To continue living in Norway—which matters greatly to him—he is looking for a new role. He uses Norwegian in daily life and is learning quickly, with a goal of speaking fluently by summer. He prefers roles in or near Oslo but is open to relocating elsewhere in Norway.</p>
             </div>
         </div>
     </div></section>
@@ -293,6 +304,7 @@
         function setLang(l){cl=l;document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));document.querySelectorAll('[data-'+l+']').forEach(e=>{const t=e.getAttribute('data-'+l);if(t){t.includes('<')?e.innerHTML=t:e.textContent=t}});document.documentElement.lang=l==='no'?'no':'en'}
         const rv=document.querySelectorAll('.reveal');const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});rv.forEach(e=>ob.observe(e));
         document.querySelectorAll('.nc a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+        document.querySelectorAll('video').forEach(v=>{v.playbackRate=2;v.addEventListener('loadedmetadata',()=>{v.playbackRate=2})});
     </script>
 </body>
 </html>
