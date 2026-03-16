@@ -8,6 +8,9 @@ Thumbs.db
 .idea/
 .vscode/
 
+# Dependencies
+node_modules/
+
 # Local overrides (if any)
 .env
 .env.local
