@@ -22,8 +22,8 @@
   };
 
   const WELCOME = {
-    en: "Hi! I'm Martin's AI assistant — a live demo of his RAG chatbot project. Ask me anything about his experience, skills, or publications!",
-    no: 'Hei! Jeg er Martins AI-assistent — en live-demo av RAG-chatbot-prosjektet hans. Spør meg om erfaring, ferdigheter eller publikasjoner!',
+    en: "Hi! I'm Martin's AI assistant — a CV-based demo, similar to the HR chatbot I built at Allente. Ask me anything about Martin's experience, skills, or publications!",
+    no: 'Hei! Jeg er Martins AI-assistent — en CV-basert demo, lik HR-chatboten jeg bygde hos Allente. Spør meg om erfaring, ferdigheter eller publikasjoner!',
   };
 
   const PLACEHOLDER = {
@@ -171,7 +171,7 @@
         chip.textContent = text;
         chip.addEventListener('click', () => {
           row.remove();
-          this.els.input.value = text;
+          this.els.input.value = chip.textContent;
           this.send();
         });
         row.appendChild(chip);

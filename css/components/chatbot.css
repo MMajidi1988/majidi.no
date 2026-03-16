@@ -41,6 +41,21 @@
   color: var(--chat-warm2);
 }
 
+/* ─── Demo note ─── */
+
+.chat-demo-note {
+  font-size: 0.75rem;
+  color: var(--dim2);
+  font-style: italic;
+  margin: -0.5rem 0 1rem 0;
+  line-height: 1.5;
+}
+
+.chat-demo-note::before {
+  content: '• ';
+  color: var(--chat-warm2);
+}
+
 /* ─── "Try Live Demo" button ─── */
 
 .chat-demo-btn {
