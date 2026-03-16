@@ -36,6 +36,7 @@
       }
     });
     document.documentElement.lang = lang === 'no' ? 'no' : 'en';
+    window.dispatchEvent(new CustomEvent('langChange', { detail: { lang } }));
   }
 
   /**

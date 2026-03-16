@@ -12,7 +12,8 @@
   margin-bottom: 4rem;
   padding: 2.5rem 3rem;
   background: rgba(19, 34, 56, 0.4);
-  border: 1px solid var(--bdr);
+  border: 1px solid var(--bdr4);
+  border-top: 2px solid var(--warm-bdr);
   border-radius: var(--r2);
   backdrop-filter: blur(10px);
   justify-content: center;
@@ -61,6 +62,7 @@
 .pi {
   padding: 1.4rem 2rem;
   border: 1px solid var(--bdr);
+  border-left: 2px solid var(--bdr4);
   border-radius: var(--r);
   transition: all 0.4s;
   display: flex;
@@ -71,8 +73,9 @@
 }
 
 .pi:hover {
-  border-color: var(--bdr3);
-  background: rgba(59, 130, 246, 0.04);
+  border-color: var(--warm-bdr);
+  border-left-color: var(--warm2);
+  background: var(--warm-d);
   padding-left: 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -111,11 +114,11 @@
 .pci {
   font-family: var(--fm);
   font-size: 0.65rem;
-  color: var(--acc2);
-  background: var(--acc-d);
+  color: var(--warm2);
+  background: var(--warm-d);
   padding: 0.25rem 0.7rem;
   border-radius: 100px;
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  border: 1px solid var(--warm-bdr);
 }
 
 .pa {

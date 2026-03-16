@@ -12,6 +12,7 @@
   padding: 2rem;
   background: rgba(19, 34, 56, 0.4);
   border: 1px solid var(--bdr);
+  border-top: 2px solid var(--bdr4);
   border-radius: var(--r2);
   transition: all 0.4s;
   backdrop-filter: blur(10px);
@@ -26,15 +27,16 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--acc), transparent);
-  opacity: 0;
+  background: linear-gradient(90deg, var(--acc), var(--warm2), var(--warm));
+  opacity: 0.8;
   transition: opacity 0.3s;
 }
 
 .sc:hover {
-  border-color: var(--bdr3);
+  border-color: var(--warm-bdr);
+  border-top-color: var(--warm2);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--warm-d);
 }
 
 .sc:hover::before {
@@ -46,10 +48,10 @@
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--acc2);
+  color: var(--warm2);
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--bdr);
+  border-bottom: 1px solid var(--bdr4);
 }
 
 .sc ul {

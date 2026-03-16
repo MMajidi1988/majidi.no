@@ -22,17 +22,23 @@
   --acc-d: rgba(59, 130, 246, 0.1);
   --acc-g: rgba(59, 130, 246, 0.2);
 
-  /* Accent — warm */
+  /* Accent — warm / amber */
   --warm: #f59e0b;
   --warm2: #fbbf24;
+  --warm3: #fcd34d;
+  --warm-d: rgba(245, 158, 11, 0.1);
+  --warm-g: rgba(245, 158, 11, 0.2);
+  --warm-bdr: rgba(245, 158, 11, 0.25);
 
   /* Effects */
   --glow: rgba(59, 130, 246, 0.15);
+  --glow-warm: rgba(245, 158, 11, 0.12);
 
   /* Borders */
   --bdr: rgba(255, 255, 255, 0.06);
   --bdr2: rgba(255, 255, 255, 0.1);
   --bdr3: rgba(59, 130, 246, 0.2);
+  --bdr4: rgba(245, 158, 11, 0.15);
 
   /* Typography */
   --fd: 'Playfair Display', Georgia, serif;

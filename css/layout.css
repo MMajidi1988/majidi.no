@@ -17,9 +17,11 @@ section {
   background: linear-gradient(
     90deg,
     transparent,
-    var(--bdr2) 20%,
-    var(--acc-d) 50%,
-    var(--bdr2) 80%,
+    var(--bdr2) 15%,
+    var(--acc-d) 35%,
+    var(--warm-d) 50%,
+    var(--acc-d) 65%,
+    var(--bdr2) 85%,
     transparent
   );
   margin: 0 auto;
@@ -43,7 +45,7 @@ section {
 .sl {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--bdr2), transparent);
+  background: linear-gradient(90deg, var(--bdr2), var(--warm-bdr) 50%, transparent);
 }
 
 .reveal {

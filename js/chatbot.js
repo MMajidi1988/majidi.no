@@ -26,6 +26,11 @@
     no: 'Hei! Jeg er Martins AI-assistent — en live-demo av RAG-chatbot-prosjektet hans. Spør meg om erfaring, ferdigheter eller publikasjoner!',
   };
 
+  const PLACEHOLDER = {
+    en: 'Ask about Martin...',
+    no: 'Spør om Martin...',
+  };
+
   const bot = {
     open: false,
     history: [],
@@ -62,6 +67,24 @@
       });
 
       this.welcome();
+
+      window.addEventListener('langChange', (e) => this.updateLang(e.detail.lang));
+    },
+
+    updateLang(lang) {
+      if (!this.els.input) return;
+      this.els.input.placeholder = PLACEHOLDER[lang] || PLACEHOLDER.en;
+
+      const firstBubble = this.els.messages?.querySelector('.chat-msg.assistant .chat-msg-bubble');
+      if (firstBubble) {
+        firstBubble.innerHTML = this.fmt(WELCOME[lang] || WELCOME.en);
+      }
+
+      const chips = this.els.messages?.querySelectorAll('.chat-suggestions .chat-chip');
+      const items = SUGGESTIONS[lang] || SUGGESTIONS.en;
+      if (chips && items.length === chips.length) {
+        chips.forEach((chip, i) => { chip.textContent = items[i]; });
+      }
     },
 
     buildInside(container) {
@@ -89,8 +112,6 @@
       ].join('\n');
 
       const lang = document.documentElement.lang === 'no' ? 'no' : 'en';
-      const placeholder =
-        lang === 'no' ? 'Spør om Martin...' : 'Ask about Martin...';
 
       this.els = {
         container,
@@ -100,7 +121,7 @@
         close: container.querySelector('.chat-close'),
       };
 
-      this.els.input.setAttribute('placeholder', placeholder);
+      this.els.input.setAttribute('placeholder', PLACEHOLDER[lang] || PLACEHOLDER.en);
     },
 
     show() {

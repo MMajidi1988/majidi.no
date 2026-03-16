@@ -29,6 +29,7 @@ nav {
 nav.scrolled {
   background: rgba(6, 13, 24, 0.92);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-bottom-color: var(--bdr4);
 }
 
 .ni {
@@ -66,7 +67,7 @@ nav.scrolled {
   left: 50%;
   width: 0;
   height: 2px;
-  background: var(--acc);
+  background: linear-gradient(90deg, var(--acc), var(--warm2));
   transition: all 0.3s;
   transform: translateX(-50%);
   border-radius: 2px;
@@ -74,7 +75,7 @@ nav.scrolled {
 
 .nc a:hover,
 .nc a.active {
-  color: var(--acc2);
+  color: var(--warm2);
 }
 
 .nc a:hover::after,
@@ -91,7 +92,7 @@ nav.scrolled {
 .lt {
   display: flex;
   background: var(--bg3);
-  border: 1px solid var(--bdr2);
+  border: 1px solid var(--bdr4);
   border-radius: 100px;
   overflow: hidden;
   padding: 2px;
@@ -112,9 +113,9 @@ nav.scrolled {
 }
 
 .lb.active {
-  background: var(--acc);
+  background: linear-gradient(135deg, var(--acc), var(--warm));
   color: #fff;
-  box-shadow: 0 2px 10px var(--acc-g);
+  box-shadow: 0 2px 10px var(--acc-g), 0 2px 8px var(--warm-d);
 }
 
 .mt {

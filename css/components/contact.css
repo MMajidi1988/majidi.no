@@ -18,7 +18,8 @@
   height: 600px;
   background: radial-gradient(
     circle,
-    rgba(59, 130, 246, 0.06),
+    rgba(59, 130, 246, 0.05) 0%,
+    rgba(245, 158, 11, 0.06) 50%,
     transparent 70%
   );
   pointer-events: none;
@@ -67,7 +68,7 @@
   align-items: center;
   gap: 0.6rem;
   padding: 0.85rem 1.6rem;
-  border: 1px solid var(--bdr);
+  border: 1px solid var(--bdr4);
   border-radius: 100px;
   text-decoration: none;
   color: var(--text);
@@ -84,11 +85,11 @@
 }
 
 .cb:hover {
-  border-color: var(--acc);
-  color: var(--acc2);
-  background: var(--acc-d);
+  border-color: var(--warm2);
+  color: var(--warm2);
+  background: var(--warm-d);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 20px var(--warm-d);
 }
 
 .cvdl {
@@ -101,7 +102,7 @@
 
 .cvdl-lbl {
   font-size: 0.72rem;
-  color: var(--dim2);
+  color: var(--warm2);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 500;

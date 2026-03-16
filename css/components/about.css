@@ -29,21 +29,24 @@
   padding: 1.4rem 1.6rem;
   background: rgba(19, 34, 56, 0.5);
   border: 1px solid var(--bdr);
+  border-left: 2px solid var(--bdr4);
   border-radius: var(--r);
   transition: all 0.4s;
   backdrop-filter: blur(10px);
 }
 
 .acd:hover {
-  border-color: var(--bdr3);
-  background: rgba(59, 130, 246, 0.06);
+  border-color: var(--warm-bdr);
+  border-left-color: var(--warm2);
+  background: var(--warm-d);
   transform: translateX(6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .acd .cl {
   font-family: var(--fm);
   font-size: 0.62rem;
-  color: var(--acc2);
+  color: var(--warm2);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 0.3rem;
@@ -74,6 +77,6 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--acc);
+  color: var(--warm2);
   font-weight: 700;
 }

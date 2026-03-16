@@ -23,6 +23,6 @@ body {
 }
 
 ::selection {
-  background: var(--acc);
-  color: #fff;
+  background: var(--warm);
+  color: #1a1a1a;
 }
