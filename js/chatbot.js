@@ -1,5 +1,5 @@
 /**
- * majidi.no — AI Chatbot widget
+ * majidi.no — AI Chatbot embedded in HR Chatbot project card
  * RAG-powered assistant that answers questions about Martin's CV
  */
 
@@ -37,63 +37,14 @@
     },
 
     init() {
-      this.build();
-      this.bind();
-      this.welcome();
-      setTimeout(() => this.els.toggle.classList.add('chat-pulse'), 2500);
-    },
+      const container = document.getElementById('chatEmbed');
+      const btn = document.getElementById('chatDemoBtn');
+      if (!container || !btn) return;
 
-    /* ── Build DOM ── */
+      this.buildInside(container);
+      this.els.btn = btn;
 
-    build() {
-      const toggle = document.createElement('button');
-      toggle.className = 'chat-toggle';
-      toggle.setAttribute('aria-label', 'Open chat');
-      toggle.innerHTML =
-        '<svg class="chat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
-        '<svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
-      document.body.appendChild(toggle);
-
-      const panel = document.createElement('div');
-      panel.className = 'chat-panel';
-      panel.innerHTML = [
-        '<div class="chat-header">',
-        '  <div class="chat-title">',
-        '    <div class="chat-avatar">M</div>',
-        '    <div>',
-        '      <div class="chat-name" data-en="Ask Martin\'s AI" data-no="Spør Martins AI">Ask Martin\'s AI</div>',
-        '      <div class="chat-status">RAG + GPT-4o-mini</div>',
-        '    </div>',
-        '  </div>',
-        '  <button class="chat-close" aria-label="Close chat">&times;</button>',
-        '</div>',
-        '<div class="chat-messages"></div>',
-        '<div class="chat-input-area">',
-        '  <textarea class="chat-input" placeholder="Ask about Martin..." rows="1"></textarea>',
-        '  <button class="chat-send" aria-label="Send message">',
-        '    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
-        '      <line x1="22" y1="2" x2="11" y2="13"/>',
-        '      <polygon points="22 2 15 22 11 13 2 9 22 2"/>',
-        '    </svg>',
-        '  </button>',
-        '</div>',
-      ].join('\n');
-      document.body.appendChild(panel);
-
-      this.els = {
-        toggle,
-        panel,
-        messages: panel.querySelector('.chat-messages'),
-        input: panel.querySelector('.chat-input'),
-        send: panel.querySelector('.chat-send'),
-        close: panel.querySelector('.chat-close'),
-      };
-    },
-
-    /* ── Events ── */
-
-    bind() {
-      this.els.toggle.addEventListener('click', () => this.toggle());
+      btn.addEventListener('click', () => this.show());
       this.els.close.addEventListener('click', () => this.hide());
       this.els.send.addEventListener('click', () => this.send());
 
@@ -107,31 +58,66 @@
       this.els.input.addEventListener('input', () => {
         this.els.input.style.height = 'auto';
         this.els.input.style.height =
-          Math.min(this.els.input.scrollHeight, 100) + 'px';
+          Math.min(this.els.input.scrollHeight, 80) + 'px';
       });
+
+      this.welcome();
     },
 
-    /* ── Open / Close ── */
+    buildInside(container) {
+      container.innerHTML = [
+        '<div class="chat-header">',
+        '  <div class="chat-title">',
+        '    <div class="chat-avatar">M</div>',
+        '    <div>',
+        '      <div class="chat-name" data-en="Ask Martin\'s AI" data-no="Spør Martins AI">Ask Martin\'s AI</div>',
+        '      <div class="chat-status">RAG + GPT-4o-mini</div>',
+        '    </div>',
+        '  </div>',
+        '  <button class="chat-close" aria-label="Close chat">&times;</button>',
+        '</div>',
+        '<div class="chat-messages"></div>',
+        '<div class="chat-input-area">',
+        '  <textarea class="chat-input" rows="1"></textarea>',
+        '  <button class="chat-send" aria-label="Send message">',
+        '    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+        '      <line x1="22" y1="2" x2="11" y2="13"/>',
+        '      <polygon points="22 2 15 22 11 13 2 9 22 2"/>',
+        '    </svg>',
+        '  </button>',
+        '</div>',
+      ].join('\n');
 
-    toggle() {
-      this.open ? this.hide() : this.show();
+      const lang = document.documentElement.lang === 'no' ? 'no' : 'en';
+      const placeholder =
+        lang === 'no' ? 'Spør om Martin...' : 'Ask about Martin...';
+
+      this.els = {
+        container,
+        messages: container.querySelector('.chat-messages'),
+        input: container.querySelector('.chat-input'),
+        send: container.querySelector('.chat-send'),
+        close: container.querySelector('.chat-close'),
+      };
+
+      this.els.input.setAttribute('placeholder', placeholder);
     },
 
     show() {
       this.open = true;
-      this.els.panel.classList.add('open');
-      this.els.toggle.classList.add('active');
-      this.els.toggle.classList.remove('chat-pulse');
-      setTimeout(() => this.els.input.focus(), 300);
+      this.els.container.classList.add('open');
+      this.els.btn.classList.add('hidden');
+      setTimeout(() => {
+        this.els.input.focus();
+        this.els.container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 350);
     },
 
     hide() {
       this.open = false;
-      this.els.panel.classList.remove('open');
-      this.els.toggle.classList.remove('active');
+      this.els.container.classList.remove('open');
+      this.els.btn.classList.remove('hidden');
     },
-
-    /* ── Messages ── */
 
     welcome() {
       const lang = this.lang();
@@ -206,8 +192,6 @@
         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
         .replace(/\n/g, '<br>');
     },
-
-    /* ── Send & Stream ── */
 
     async send() {
       const text = this.els.input.value.trim();
