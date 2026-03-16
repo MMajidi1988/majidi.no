@@ -111,10 +111,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { messages } = req.body;
+  const { messages, preferredLanguage } = req.body;
   if (!messages || !Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: 'Messages array is required' });
   }
+
+  const langHint = preferredLanguage === 'no'
+    ? 'CRITICAL: The user\'s interface is in Norwegian. You MUST respond entirely in Norwegian (norsk).'
+    : '';
+
+  const systemContent = langHint
+    ? `${SYSTEM_PROMPT}\n\n${langHint}`
+    : SYSTEM_PROMPT;
 
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
@@ -129,7 +137,7 @@ export default async function handler(req, res) {
     const stream = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [
-        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'system', content: systemContent },
         ...messages.slice(-10),
       ],
       stream: true,

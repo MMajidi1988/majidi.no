@@ -231,10 +231,11 @@
       const typing = this.showTyping();
 
       try {
+        const preferredLang = document.documentElement.lang === 'no' ? 'no' : 'en';
         const res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: this.history }),
+          body: JSON.stringify({ messages: this.history, preferredLanguage: preferredLang }),
         });
 
         if (!res.ok) throw new Error(res.statusText);
