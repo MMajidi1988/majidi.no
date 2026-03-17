@@ -79,6 +79,12 @@
     height: 220px;
   }
 
+  .hero-chat-ring {
+    width: 320px;
+    height: 320px;
+    margin: -160px 0 0 -160px;
+  }
+
   .vg {
     grid-template-columns: 1fr;
   }

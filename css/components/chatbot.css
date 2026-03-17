@@ -401,10 +401,124 @@
   }
 }
 
+/* ─── Floating chat toggle button ─── */
+
+.floating-chat-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--warm), #d97706);
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s, background 0.3s;
+}
+
+.floating-chat-btn.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.floating-chat-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: #1a1a1a;
+  fill: none;
+  transition: stroke 0.3s;
+}
+
+.floating-chat-btn.visible:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(245, 158, 11, 0.5);
+}
+
+.floating-chat-btn.chat-open {
+  background: var(--bg3);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.floating-chat-btn.chat-open svg {
+  stroke: var(--warm2);
+}
+
+/* ─── Floating chat panel ─── */
+
+.floating-chat {
+  --chat-warm: #f59e0b;
+  --chat-warm2: #fbbf24;
+  --chat-warm3: #fcd34d;
+  --chat-warm-d: rgba(245, 158, 11, 0.1);
+  --chat-warm-g: rgba(245, 158, 11, 0.2);
+  --chat-warm-bg: rgba(245, 158, 11, 0.04);
+  --chat-warm-bdr: rgba(245, 158, 11, 0.2);
+
+  position: fixed;
+  bottom: 96px;
+  right: 28px;
+  width: 380px;
+  height: 520px;
+  z-index: 1001;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: rgba(6, 13, 24, 0.95);
+  backdrop-filter: blur(16px);
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 158, 11, 0.08);
+}
+
+.floating-chat.open {
+  display: flex;
+  animation: floatingChatIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes floatingChatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ─── Responsive ─── */
 
 @media (max-width: 600px) {
   .chat-embed.open {
     height: 380px;
+  }
+
+  .floating-chat.open {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 80vh;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .floating-chat-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-chat-btn svg {
+    width: 20px;
+    height: 20px;
   }
 }
