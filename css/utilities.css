@@ -86,9 +86,18 @@
   }
 
   .hero-chat-hint {
-    bottom: -20px;
+    bottom: -12px;
     font-size: 0.82rem;
     padding: 8px 12px;
+    max-width: 78vw;
+  }
+
+  .hero-chat-hint-primary-desktop {
+    display: none;
+  }
+
+  .hero-chat-hint-primary-mobile {
+    display: inline;
   }
 
   .vg {

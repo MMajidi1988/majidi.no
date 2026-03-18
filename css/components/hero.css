@@ -346,6 +346,14 @@
   background: rgba(6, 13, 24, 0.66);
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 22px rgba(245, 158, 11, 0.12);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.hero-chat-hint-primary {
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--text);
 }
 
 .hero-chat-hint-cta {
@@ -355,6 +363,10 @@
   letter-spacing: 0.12em;
   font-size: 0.72rem;
   text-shadow: 0 0 16px rgba(245, 158, 11, 0.25);
+}
+
+.hero-chat-hint-primary-mobile {
+  display: none;
 }
 
 @keyframes heroHintIn {
