@@ -86,8 +86,9 @@
   }
 
   .hero-chat-hint {
-    bottom: -22px;
-    font-size: 0.7rem;
+    bottom: -20px;
+    font-size: 0.82rem;
+    padding: 8px 12px;
   }
 
   .vg {
