@@ -345,6 +345,12 @@
 
       if (heroRing) {
         heroRing.addEventListener('click', () => this.show());
+        heroRing.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.show();
+          }
+        });
       }
 
       this.els.close.addEventListener('click', () => this.hide());

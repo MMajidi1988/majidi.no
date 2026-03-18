@@ -85,6 +85,11 @@
     margin: -160px 0 0 -160px;
   }
 
+  .hero-chat-hint {
+    bottom: -22px;
+    font-size: 0.7rem;
+  }
+
   .vg {
     grid-template-columns: 1fr;
   }
