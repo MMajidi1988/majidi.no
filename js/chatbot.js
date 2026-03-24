@@ -7,6 +7,12 @@
 (function () {
   'use strict';
 
+  function trackEvent(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  }
+
   const SUGGESTIONS = {
     en: [
       "What's Martin's experience?",
@@ -167,6 +173,7 @@
     if (sugRow) sugRow.remove();
 
     appendMsg(state.els, 'user', text);
+    trackEvent('chatbot_message_sent');
     state.history.push({ role: 'user', content: text });
     state.els.input.value = '';
     state.els.input.style.height = 'auto';
@@ -226,6 +233,7 @@
       if (full) {
         state.history.push({ role: 'assistant', content: full });
       }
+      trackEvent('chatbot_response_received');
     } catch (err) {
       typing.remove();
       appendMsg(
@@ -235,6 +243,7 @@
           ? 'Beklager, noe gikk galt. Prøv igjen.'
           : 'Sorry, something went wrong. Please try again.'
       );
+      trackEvent('chatbot_response_received');
     }
 
     state.streaming = false;
@@ -298,6 +307,7 @@
 
     show() {
       this.open = true;
+      trackEvent('chatbot_opened');
       this.els.container.classList.add('open');
       this.els.btn.classList.add('hidden');
       setTimeout(() => {
@@ -368,6 +378,7 @@
 
     show() {
       this.open = true;
+      trackEvent('chatbot_opened');
       this.els.container.classList.add('open');
       if (this.els.toggleBtn) this.els.toggleBtn.classList.add('chat-open');
       setTimeout(() => this.els.input.focus(), 350);

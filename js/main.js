@@ -6,6 +6,31 @@
 (function () {
   'use strict';
 
+  function trackEvent(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  }
+
+  function getVideoLabel(video) {
+    const explicit =
+      video.id ||
+      video.getAttribute('data-video-id') ||
+      video.getAttribute('data-video-name') ||
+      video.getAttribute('aria-label') ||
+      video.getAttribute('title');
+    if (explicit) return explicit;
+    const src = video.currentSrc || video.querySelector('source')?.getAttribute('src');
+    if (src) {
+      try {
+        const path = new URL(src, window.location.href).pathname;
+        const base = path.split('/').pop();
+        if (base) return decodeURIComponent(base);
+      } catch (_) {}
+    }
+    return 'video';
+  }
+
   const DOM = {
     scrollBar: () => document.getElementById('scrollBar'),
     nav: () => document.getElementById('nav'),
@@ -108,6 +133,21 @@
       video.playbackRate = rate;
       video.addEventListener('loadedmetadata', () => {
         video.playbackRate = rate;
+      });
+
+      const labelFor = () => getVideoLabel(video);
+
+      video.addEventListener('play', () => {
+        trackEvent('video_play', { event_label: labelFor() });
+      });
+
+      video.addEventListener('pause', () => {
+        if (video.ended) return;
+        trackEvent('video_pause', { event_label: labelFor() });
+      });
+
+      video.addEventListener('ended', () => {
+        trackEvent('video_complete', { event_label: labelFor() });
       });
     });
   }
