@@ -59,12 +59,12 @@ ACADEMIC TRANSCRIPT (MSc at OsloMet — 120 credits total)
 - ACIT5920 Master's Thesis, Phase 2 (2023 autumn, 20 credits) — Pass
 - ACIT5930 Master's Thesis, Phase 3: SmartCrop: AI-Based Cropping of Sports Videos (2024 spring, 30 credits) — Grade A
 
-PUBLICATIONS (6 peer-reviewed papers, 83 citations, h-index 5)
-1. "AI-based sports highlight generation for social media" — 3rd Mile-High Video Conference, 2024 (29 citations)
-2. "Soccer on social media" — arXiv preprint, 2023 (18 citations)
-3. "AI-based cropping of soccer videos for different social media representations" — Int. Conf. Multimedia Modeling, 2024 (15 citations)
-4. "SmartCrop: AI-based cropping of soccer videos" — IEEE ISM, 2023 (12 citations)
-5. "SmartCrop-H: AI-Based Cropping of Ice Hockey Videos" — ACM MMSys, 2024 (6 citations, Best Paper Nominee)
+PUBLICATIONS (6 peer-reviewed papers, 88 citations, h-index 5, i10-index 4)
+1. "AI-based sports highlight generation for social media" — 3rd Mile-High Video Conference, 2024 (34 citations)
+2. "Soccer on social media" — arXiv preprint, 2023 (19 citations)
+3. "AI-based cropping of soccer videos for different social media representations" — Int. Conf. Multimedia Modeling, 2024 (17 citations)
+4. "SmartCrop: AI-based cropping of soccer videos" — IEEE ISM, 2023 (10 citations)
+5. "SmartCrop-H: AI-Based Cropping of Ice Hockey Videos" — ACM MMSys, 2024 (5 citations, Best Paper Nominee)
 6. "Bi-objective optimization of warranty policies" — Life Cycle Reliability and Safety Engineering, 2020 (3 citations)
 
 CERTIFICATION: AWS Technical Essentials — Amazon Web Services

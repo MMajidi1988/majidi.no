@@ -124,3 +124,32 @@
   color: var(--acc2);
   font-weight: 700;
 }
+
+.eli-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.paudio-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.paudio-label {
+  font-family: var(--fm);
+  font-size: 0.62rem;
+  color: var(--acc2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.paudio {
+  width: 100%;
+  height: 36px;
+  border-radius: var(--r);
+  accent-color: var(--warm2);
+}

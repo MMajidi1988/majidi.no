@@ -130,3 +130,19 @@
   border-radius: 100px;
   border: 1px solid rgba(245, 158, 11, 0.15);
 }
+
+.ppod {
+  font-family: var(--fm);
+  font-size: 0.62rem;
+  color: var(--acc2);
+  background: var(--acc-d);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid var(--bdr3);
+}
+
+.paudio-pub {
+  width: 220px;
+  max-width: 100%;
+  height: 32px;
+}
