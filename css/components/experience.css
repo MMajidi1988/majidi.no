@@ -82,7 +82,39 @@
   list-style: none;
   padding-left: 1.5rem;
   position: relative;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.epdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--fm);
+  font-size: 0.65rem;
+  color: var(--warm2);
+  text-decoration: none;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid var(--warm-bdr);
+  background: var(--warm-d);
+  transition: all 0.3s;
+}
+
+.epdf svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.epdf:hover {
+  color: var(--warm);
+  border-color: var(--warm2);
+  background: rgba(245, 158, 11, 0.15);
+  transform: translateY(-1px);
 }
 
 .edesc li::before {
