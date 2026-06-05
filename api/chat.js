@@ -37,6 +37,7 @@ WORK EXPERIENCE
    - Developed a bi-objective nurse scheduling model minimizing staffing cost and fatigue simultaneously, applying virtual-age theory and a GA–VNS metaheuristic validated against exhaustive search across 9 shift scenarios (full report: /assets/documents/Nurse_Scheduling_Model_and_Solution.pdf)
    - Formulated an integrated MILP model jointly optimizing hub-port location, inter-hub ship chartering, and real-time berth allocation with non-overlap scheduling constraints across a maritime logistics network (full report: /assets/documents/Maritime_Hub_Location_Ship_Routing_Berth_Allocation_Model.pdf)
    - Modeled facility location-allocation under stochastic demand and customer balking behavior using queuing theory, optimizing queue congestion, green supply chain emissions, and lost demand simultaneously with a two-phase GA and Monte Carlo hybrid solver (full report: /assets/documents/Modeled facility location-allocation.pdf)
+   - Modeled a multi-dock cross-docking VRP with stochastic travel times — jointly optimizing two-level vehicle routing (suppliers→docks and docks→customers), inter-dock product transfers, and vehicle-to-dock assignment — solved via a Biogeography-Based Optimization metaheuristic with three-matrix solution encoding (full report: /assets/documents/CrossDocking_VRP_Stochastic_Travel_Times.pdf)
 
 EDUCATION
 1. Master of Science in Applied Computer and Information Technology — Oslo Metropolitan University (OsloMet), Norway
