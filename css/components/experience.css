@@ -276,7 +276,7 @@
 
 .ei-forzasys .ei-logo {
   height: 34px;
-  filter: brightness(1.05);
+  filter: brightness(0) invert(1);
 }
 
 /* ─── Espad — industrial engineering ─── */
