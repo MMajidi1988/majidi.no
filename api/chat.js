@@ -1,37 +1,46 @@
 import OpenAI from 'openai';
 
 const CV_CONTEXT = `
-MARTIN MAJIDI — Software Engineer & AI Engineer
-Location: Oslo, Norway
+MARTIN MAJIDI — Data Engineer & AI Engineer
+Location: Sandefjord, Norway
 Email: martinmajidi@yahoo.com | Phone: +47 46376549
 LinkedIn: linkedin.com/in/martinmajidi | GitHub: github.com/MMajidi1988
 Google Scholar: scholar.google.com/citations?user=sMXc-hYAAAAJ
 Website: majidi.no
 
 SUMMARY
-Software Engineer with 5+ years of experience in algorithm development, AI systems, and API development. Expertise in conversational AI (RAG architectures, chatbot development), computer vision (object detection, video processing), and optimization algorithms. Background spanning Computer Science, Industrial Engineering, and AI enables bridging technical implementation with business optimization.
+Data Engineer at Jotun working on Hull Skating Solutions (HSS). 5+ years of experience in data engineering, algorithm development, AI systems, and API development. Expertise in big data analytics, conversational AI (RAG architectures), computer vision (object detection, video processing), and optimization algorithms. Background spanning Computer Science, Industrial Engineering, and AI enables bridging technical implementation with business optimization.
 
 TECHNICAL SKILLS
 - Languages: Java, Python, MATLAB, SQL
+- Data Engineering: ETL Pipelines, Big Data Analytics, Predictive Analytics, Data Modeling
 - Frameworks & Tools: Spring Boot, REST APIs, GraphQL, PostgreSQL, pgvector, Docker
 - AI/ML: RAG Architecture, YOLO (v8, v9), RT-DETR, Computer Vision, Vector Search
 - Cloud & DevOps: AWS (Technical Essentials certified), CI/CD, Microservices Architecture
 
 WORK EXPERIENCE
-1. Software Engineer — Allente AS, Oslo (Aug 2024 – Present)
+1. Data Engineer — Jotun, Sandefjord (Aug 2026 – Present)
+   Global paint and coatings company; Hull Skating Solutions (HSS) project
+   - Working on Hull Skating Solutions — Jotun's integrated approach combining the HullSkater robotic cleaner, SeaQuantum Skate coatings, and proactive condition monitoring for always-clean hull performance
+   - Building data pipelines and analytics for fouling prediction using big data trends, algorithms, and oceanographic assessment to time proactive hull maintenance
+   - Supporting predictive hull maintenance that reduces fuel costs, greenhouse gas emissions, and the spread of invasive species — verified by DNV for always-clean hull with no measurable speed loss
+   - Contributing to 24/7 remote HullSkater operations through global operating hubs and data-driven deployment scheduling
+   - More info: jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
+
+2. Software Engineer — Allente AS, Oslo (Aug 2024 – Mar 2026)
    Nordic telecommunications company providing streaming and TV services
    - Built full-stack HR Chatbot with RAG architecture using Spring Boot, OpenAI GPT-4o, and PostgreSQL vector search, featuring admin panel for document management across 4 Nordic countries
    - Maintained partner integration system processing subscription data and user synchronization across 6+ streaming platforms including Amazon Prime, Viaplay, and TV2 Norway
    - Extended API gateway with new endpoints for Boost.ai chatbot and voice bot integration, configuring API connectors for customer service automation
    - Implemented GraphQL and REST APIs across microservices for customer data retrieval
 
-2. AI & ML Developer — Forzasys/SimulaMet, Oslo (Jun 2023 – Jun 2024)
+3. AI & ML Developer — Forzasys/SimulaMet, Oslo (Jun 2023 – Jun 2024)
    Sports technology company specializing in AI-powered video analysis
    - Built end-to-end SmartCrop system for automatic sports video cropping (soccer, ice hockey) with focal point detection and API integration for social media distribution
    - Developed and fine-tuned computer vision models (YOLO v8, v9, RT-DETR) for real-time object detection, achieving production-ready accuracy through hyperparameter optimization
    - Designed processing pipeline handling video content for automatic reformatting to platform-specific aspect ratios
 
-3. Optimization Developer — Espad Company, Iran (2017 – 2021)
+4. Optimization Developer — Espad Company, Iran (2017 – 2021)
    Engineering consultancy specializing in operations research and optimization solutions
    - Designed and implemented metaheuristic optimization algorithms in MATLAB for emergency response routing in earthquake scenarios (full report: /assets/documents/Relief_Covering_Tour_Routing_Model_and_Solution.pdf)
    - Developed a bi-objective nurse scheduling model minimizing staffing cost and fatigue simultaneously, applying virtual-age theory and a GA–VNS metaheuristic validated against exhaustive search across 9 shift scenarios (full report: /assets/documents/Nurse_Scheduling_Model_and_Solution.pdf)
@@ -60,7 +69,9 @@ ACADEMIC TRANSCRIPT (MSc at OsloMet — 120 credits total)
 - ACIT5920 Master's Thesis, Phase 2 (2023 autumn, 20 credits) — Pass
 - ACIT5930 Master's Thesis, Phase 3: SmartCrop: AI-Based Cropping of Sports Videos (2024 spring, 30 credits) — Grade A
 
-PUBLICATIONS (6 peer-reviewed papers, 88 citations, h-index 5, i10-index 4)
+PUBLICATIONS (6 peer-reviewed papers, 99 citations, h-index 5, i10-index 4)
+Citations by year: 2021 (2), 2022 (0), 2023 (2), 2024 (46), 2025 (33), 2026 (16)
+Public access: 2 articles available, 1 not available
 1. "AI-based sports highlight generation for social media" — 3rd Mile-High Video Conference, 2024 (34 citations)
 2. "Soccer on social media" — arXiv preprint, 2023 (19 citations)
 3. "AI-based cropping of soccer videos for different social media representations" — Int. Conf. Multimedia Modeling, 2024 (17 citations)
@@ -70,7 +81,7 @@ PUBLICATIONS (6 peer-reviewed papers, 88 citations, h-index 5, i10-index 4)
 
 CERTIFICATION: AWS Technical Essentials — Amazon Web Services
 LANGUAGES: English (Fluent), Norwegian (Elementary), Persian (Native)
-Currently exploring new opportunities in software engineering and AI.
+Currently working as Data Engineer at Jotun on Hull Skating Solutions in Sandefjord.
 
 ===== PAPER 1: SmartCrop — AI-Based Cropping of Soccer Videos (IEEE ISM 2023) =====
 
