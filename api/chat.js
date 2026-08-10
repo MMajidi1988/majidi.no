@@ -20,12 +20,13 @@ TECHNICAL SKILLS
 
 WORK EXPERIENCE
 1. Data Engineer — Jotun, Sandefjord (Aug 2026 – Present)
-   Global paint and coatings company; Hull Skating Solutions (HSS) project
-   - Working on Hull Skating Solutions — Jotun's integrated approach combining the HullSkater robotic cleaner, SeaQuantum Skate coatings, and proactive condition monitoring for always-clean hull performance
-   - Building data pipelines and analytics for fouling prediction using big data trends, algorithms, and oceanographic assessment to time proactive hull maintenance
-   - Supporting predictive hull maintenance that reduces fuel costs, greenhouse gas emissions, and the spread of invasive species — verified by DNV for always-clean hull with no measurable speed loss
-   - Contributing to 24/7 remote HullSkater operations through global operating hubs and data-driven deployment scheduling
-   - More info: jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
+   Current role. Global coatings company; project: Hull Skating Solutions (HSS)
+   - Data Engineer on Jotun Hull Skating Solutions (HSS) in Sandefjord, Norway
+   - Builds and maintains data pipelines, analytics, and predictive models for fouling prediction and proactive hull maintenance timing
+   - Works with big data trends, algorithms, oceanographic assessment, and condition-monitoring data that advise when to deploy the HullSkater
+   - Supports data-driven scheduling for 24/7 remote HullSkater operations run from global "follow the sun" operating hubs
+   - Contributes to a solution aimed at reducing fuel costs, GHG emissions, and invasive-species spread via always-clean hull performance
+   - Official product page: https://www.jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
 
 2. Software Engineer — Allente AS, Oslo (Aug 2024 – Mar 2026)
    Nordic telecommunications company providing streaming and TV services
@@ -83,6 +84,45 @@ CERTIFICATION: AWS Technical Essentials — Amazon Web Services
 LANGUAGES: English (Fluent), Norwegian (Elementary), Persian (Native)
 Currently working as Data Engineer at Jotun on Hull Skating Solutions in Sandefjord.
 
+===== CURRENT ROLE & PROJECT: Jotun Hull Skating Solutions (HSS) =====
+
+What Martin does now:
+Martin is a Data Engineer at Jotun in Sandefjord, Norway (started August 2026). His current project is Hull Skating Solutions (HSS). He focuses on data engineering for predictive hull maintenance — pipelines, analytics, and fouling-prediction support that help time when vessels should run proactive cleaning with the HullSkater.
+
+What is Hull Skating Solutions (HSS)?
+Jotun Hull Skating Solutions is an integrated maritime hull-performance solution. Tagline: "Always clean hull — even for the most challenging operations." It uses proactive cleaning to combat early-stage biofouling so ships keep a clean hull. A clean hull reduces fuel costs, greenhouse gas emissions, and the spread of invasive species. DNV has verified that vessels operating under Jotun HSS achieve an always-clean hull with no measurable speed loss.
+
+The five key elements of HSS:
+1. High-performance coatings — SeaQuantum Skate antifouling coating, developed specifically for use with HullSkater technology. Based on 20+ years of SeaQuantum silyl acrylate R&D. It is the only coating tailored for Hull Skating, verified by Lloyd's Register.
+2. Proactive condition monitoring — In-house analysts make fouling predictions from big data trends, algorithms, and analyses, and advise customers when to carry out hull maintenance. Includes oceanographic assessment for fouling prediction so Skate Operators can time HullSkater deployment.
+3. Inspection and proactive cleaning — The HullSkater is a robotic device designed for proactive cleaning. It inspects and removes fouling without damaging the antifouling coating. It stays onboard the vessel, so it is always available in harbour or at anchor.
+4. High-end technical service — Coating advisors ensure high-quality coating application with documented quality control. Certified project managers oversee application and robotics setup. HullSkater is remotely operated by Skate Operators in global "follow the sun" hubs for 24/7 support.
+5. Clean hull guarantee — Performance and service-level guarantees for challenging operations.
+
+Why HSS matters (problems it solves):
+- Biofouling on ship hulls increases drag, fuel consumption, and emissions.
+- Challenging operational profiles (idle time, warm waters, complex routes) accelerate fouling and hurt efficiency.
+- Traditional reactive cleaning is often too late; HSS focuses on early-stage, proactive cleaning.
+- Helps shipping companies meet sustainability and biodiversity goals (cleaner operations, less invasive-species transfer).
+
+Key products / terms the chatbot should recognize:
+- HSS / Hull Skating Solutions / Hull Skating
+- HullSkater (onboard robotic inspection and cleaning device)
+- SeaQuantum Skate (coating paired with HullSkater)
+- Proactive condition monitoring / fouling prediction
+- Jotun (company), Sandefjord (Martin's work location)
+- DNV verification (always-clean hull, no measurable speed loss)
+- Lloyd's Register verification (SeaQuantum Skate for Hull Skating)
+
+Martin's angle as Data Engineer (how to describe his contribution):
+- Data pipelines and analytics feeding fouling prediction and maintenance timing
+- Support for predictive / condition-based hull maintenance
+- Data that helps operators decide when to deploy the HullSkater
+- Contribution to a maritime sustainability solution (fuel, emissions, invasive species)
+
+Public reference:
+https://www.jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
+
 ===== PAPER 1: SmartCrop — AI-Based Cropping of Soccer Videos (IEEE ISM 2023) =====
 
 Overview: As media consumption expanded to social media and mobile devices, video content originally filmed in 16:9 must be adapted to formats like 1:1 (Instagram) and 9:16 (TikTok/Reels). For dynamic sports like soccer, traditional manual cropping is too slow for real-time publishing. SmartCrop is an automated end-to-end pipeline for intelligently cropping soccer highlight videos for social media by tracking the ball as the main Point of Interest (POI).
@@ -129,21 +169,23 @@ Subjective Evaluation: 26 participants rated six cropping alternatives across fo
 Conclusion: Domain-specific adaptation is critical — techniques validated on soccer do not transfer directly to hockey. The combination of hockey-specific YOLO detector, IQR outlier detection with Y-axis spatial prior, and EMA smoothing measurably improves viewer QoE. Future work: extending beyond puck-centric cropping to incorporate player positions and broader game context.
 `;
 
-const SYSTEM_PROMPT = `You are Martin's AI assistant on his personal portfolio website (majidi.no). You answer questions about Martin Majidi based on his CV, academic transcript, and research publications.
+const SYSTEM_PROMPT = `You are Martin's AI assistant on his personal portfolio website (majidi.no). You answer questions about Martin Majidi based on his CV, academic transcript, research publications, and his current work at Jotun on Hull Skating Solutions (HSS).
 
 Rules:
 - LANGUAGE: Always respond in the same language the user writes in. If the user writes in Norwegian (norsk), respond entirely in Norwegian. If the user writes in English, respond in English. This is mandatory.
-- Only answer questions related to Martin's professional background, skills, experience, education, academic courses, projects, publications, and contact info.
+- Only answer questions related to Martin's professional background, skills, experience, education, academic courses, projects (including HSS / Hull Skating Solutions), publications, and contact info.
 - Be conversational, friendly, and professional.
 - If asked something not covered in the provided data, politely say you don't have that information and suggest contacting Martin directly.
-- Keep answers concise but informative (2-4 sentences typically). For detailed research questions, you may give longer answers drawing from the paper summaries.
+- Keep answers concise but informative (2-4 sentences typically). For detailed questions about SmartCrop research or HSS, you may give longer answers drawing from the detailed sections.
 - You can mention that this chatbot itself is a live demo of Martin's RAG chatbot expertise.
 - Do not make up information not present in the provided data.
 - When listing items, use short bullet points.
 - If asked "who are you" or similar, explain you are an AI assistant built to answer questions about Martin, powered by RAG (Retrieval-Augmented Generation) and GPT-4o-mini.
 - When asked about SmartCrop, the thesis, or the research papers, use the detailed paper summaries to give specific technical answers (pipeline modules, evaluation results, model performance numbers, etc.).
+- When asked about Jotun, his current job, Data Engineer role, HSS, Hull Skating Solutions, HullSkater, SeaQuantum Skate, fouling, or clean hull — use the detailed HSS section. Explain both what Martin does (data engineering for predictive hull maintenance) and what the product/solution is.
+- If asked where Martin works now or what his current role is, lead with: Data Engineer at Jotun in Sandefjord on Hull Skating Solutions (HSS), since August 2026.
 
-Martin's data (CV + transcript + research papers):
+Martin's data (CV + transcript + research papers + HSS):
 ${CV_CONTEXT}`;
 
 export default async function handler(req, res) {

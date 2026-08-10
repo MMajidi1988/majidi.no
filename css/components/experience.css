@@ -1,78 +1,137 @@
 /**
- * Experience section
+ * Experience section — company-themed cards
  */
 
 #experience {
   background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
 }
 
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ─── Base card ─── */
+
 .ei {
+  --brand-primary: var(--acc);
+  --brand-secondary: var(--acc2);
+  --brand-accent: var(--warm2);
+  --brand-bg: rgba(19, 34, 56, 0.45);
+  --brand-bg2: rgba(19, 34, 56, 0.25);
+  --brand-border: rgba(255, 255, 255, 0.08);
+  --brand-glow: rgba(59, 130, 246, 0.12);
+  --brand-text: var(--text);
+  --brand-muted: var(--dim);
+  --brand-logo-bg: rgba(255, 255, 255, 0.06);
+  --brand-logo-pad: 1rem 1.25rem;
+
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 3rem;
-  padding: 3rem 0;
-  border-bottom: 1px solid var(--bdr);
-  transition: all 0.4s;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5rem;
+  padding: 2.25rem 2.5rem;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--r2);
+  background:
+    linear-gradient(135deg, var(--brand-bg) 0%, var(--brand-bg2) 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   position: relative;
+  overflow: hidden;
 }
 
 .ei::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 3rem;
-  bottom: 3rem;
-  width: 2px;
-  background: var(--warm-bdr);
-  border-radius: 2px;
-  opacity: 0;
-  transition: opacity 0.4s;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--brand-primary), var(--brand-accent));
+  border-radius: var(--r2) 0 0 var(--r2);
 }
 
-.ei:first-of-type {
-  padding-top: 0;
-}
-
-.ei:first-of-type::before {
-  top: 0;
-}
-
-.ei:last-child {
-  border-bottom: none;
+.ei::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--brand-glow) 0%, transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
 .ei:hover {
-  padding-left: 1.5rem;
-  border-bottom-color: var(--warm-bdr);
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--brand-primary) 35%, transparent);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.32), 0 0 0 1px color-mix(in srgb, var(--brand-primary) 15%, transparent);
 }
 
-.ei:hover::before {
-  opacity: 1;
+/* ─── Brand column ─── */
+
+.ei-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.25rem;
+}
+
+.ei-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  padding: var(--brand-logo-pad);
+  background: var(--brand-logo-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--r);
+  backdrop-filter: blur(8px);
+}
+
+.ei-logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 42px;
+  object-fit: contain;
+}
+
+.ei-logo.ei-logo-wide {
+  height: 36px;
 }
 
 .ed {
   font-family: var(--fm);
-  font-size: 0.75rem;
-  color: var(--dim2);
-  padding-top: 0.3rem;
+  font-size: 0.72rem;
+  color: var(--brand-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+/* ─── Content column ─── */
+
+.ei-body {
+  min-width: 0;
 }
 
 .er {
   font-family: var(--fd);
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
+  color: var(--brand-text);
 }
 
 .ec {
-  font-size: 0.88rem;
-  color: var(--warm2);
+  font-size: 0.9rem;
+  color: var(--brand-accent);
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .edesc {
-  color: var(--dim);
+  color: var(--brand-muted);
   font-size: 0.9rem;
   line-height: 1.85;
   font-weight: 300;
@@ -89,18 +148,26 @@
   gap: 0.4rem;
 }
 
+.edesc li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
 .epdf {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   font-family: var(--fm);
   font-size: 0.65rem;
-  color: var(--warm2);
+  color: var(--brand-accent);
   text-decoration: none;
   padding: 0.25rem 0.7rem;
   border-radius: 100px;
-  border: 1px solid var(--warm-bdr);
-  background: var(--warm-d);
+  border: 1px solid color-mix(in srgb, var(--brand-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--brand-accent) 10%, transparent);
   transition: all 0.3s;
 }
 
@@ -111,18 +178,10 @@
 }
 
 .epdf:hover {
-  color: var(--warm);
-  border-color: var(--warm2);
-  background: rgba(245, 158, 11, 0.15);
+  color: var(--brand-text);
+  border-color: var(--brand-primary);
+  background: color-mix(in srgb, var(--brand-primary) 18%, transparent);
   transform: translateY(-1px);
-}
-
-.edesc li::before {
-  content: '▹';
-  position: absolute;
-  left: 0;
-  color: var(--acc2);
-  font-weight: 700;
 }
 
 .eli-actions {
@@ -142,7 +201,7 @@
 .paudio-label {
   font-family: var(--fm);
   font-size: 0.62rem;
-  color: var(--acc2);
+  color: var(--brand-secondary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -151,5 +210,132 @@
   width: 100%;
   height: 36px;
   border-radius: var(--r);
-  accent-color: var(--warm2);
+  accent-color: var(--brand-accent);
+}
+
+/* ─── Jotun — navy, gold, red ─── */
+
+.ei-jotun {
+  --brand-primary: #f0ab00;
+  --brand-secondary: #fcd770;
+  --brand-accent: #f0ab00;
+  --brand-bg: rgba(3, 30, 69, 0.72);
+  --brand-bg2: rgba(3, 30, 69, 0.38);
+  --brand-border: rgba(240, 171, 0, 0.18);
+  --brand-glow: rgba(240, 171, 0, 0.14);
+  --brand-text: #f8fafc;
+  --brand-muted: #b8c5d9;
+  --brand-logo-bg: rgba(255, 255, 255, 0.95);
+  --brand-logo-pad: 0.85rem 1rem;
+}
+
+.ei-jotun::before {
+  background: linear-gradient(180deg, #d52b1e 0%, #d52b1e 14%, #f0ab00 14%, #f0ab00 100%);
+  width: 5px;
+}
+
+.ei-jotun .ei-logo {
+  height: 38px;
+}
+
+/* ─── Allente — dark streaming theme, orange accent ─── */
+
+.ei-allente {
+  --brand-primary: #fd6100;
+  --brand-secondary: #fd883f;
+  --brand-accent: #fcbe97;
+  --brand-bg: rgba(7, 16, 30, 0.88);
+  --brand-bg2: rgba(15, 29, 51, 0.72);
+  --brand-border: rgba(253, 97, 0, 0.16);
+  --brand-glow: rgba(253, 97, 0, 0.12);
+  --brand-text: #ffffff;
+  --brand-muted: #d0d8e8;
+  --brand-logo-bg: rgba(15, 29, 51, 0.9);
+  --brand-logo-pad: 1rem 1.1rem;
+}
+
+.ei-allente .ei-logo {
+  height: 32px;
+}
+
+/* ─── Forzasys — dark sports tech ─── */
+
+.ei-forzasys {
+  --brand-primary: #22c55e;
+  --brand-secondary: #4ade80;
+  --brand-accent: #86efac;
+  --brand-bg: rgba(12, 18, 16, 0.88);
+  --brand-bg2: rgba(18, 28, 24, 0.72);
+  --brand-border: rgba(34, 197, 94, 0.16);
+  --brand-glow: rgba(34, 197, 94, 0.1);
+  --brand-text: #f0fdf4;
+  --brand-muted: #b7c9bf;
+  --brand-logo-bg: rgba(0, 0, 0, 0.35);
+  --brand-logo-pad: 1rem 1.25rem;
+}
+
+.ei-forzasys .ei-logo {
+  height: 34px;
+  filter: brightness(1.05);
+}
+
+/* ─── Espad — industrial engineering ─── */
+
+.ei-espad {
+  --brand-primary: #0ea5e9;
+  --brand-secondary: #38bdf8;
+  --brand-accent: #7dd3fc;
+  --brand-bg: rgba(15, 28, 42, 0.82);
+  --brand-bg2: rgba(20, 38, 58, 0.58);
+  --brand-border: rgba(14, 165, 233, 0.16);
+  --brand-glow: rgba(14, 165, 233, 0.1);
+  --brand-text: #f0f9ff;
+  --brand-muted: #b6c9d8;
+  --brand-logo-bg: rgba(14, 165, 233, 0.08);
+  --brand-logo-pad: 1rem 1.25rem;
+}
+
+.ei-espad-logo {
+  font-family: var(--fd);
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--brand-accent);
+  line-height: 1;
+}
+
+.ei-espad-tag {
+  font-family: var(--fm);
+  font-size: 0.58rem;
+  color: var(--brand-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .ei {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.75rem 1.5rem;
+  }
+
+  .ei-brand {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .ei-logo-wrap {
+    min-height: 56px;
+    flex: 1;
+    max-width: 180px;
+  }
+
+  .ed {
+    flex-shrink: 0;
+    text-align: right;
+    max-width: 42%;
+  }
 }
