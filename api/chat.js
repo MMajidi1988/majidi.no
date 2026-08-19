@@ -9,7 +9,7 @@ Google Scholar: scholar.google.com/citations?user=sMXc-hYAAAAJ
 Website: majidi.no
 
 SUMMARY
-Data Engineer at Jotun working on Hull Skating Solutions (HSS). 5+ years of experience in data engineering, algorithm development, AI systems, and API development. Expertise in big data analytics, conversational AI (RAG architectures), computer vision (object detection, video processing), and optimization algorithms. Background spanning Computer Science, Industrial Engineering, and AI enables bridging technical implementation with business optimization.
+Currently at Jotun, working with Hull Skating Solutions (HSS). 5+ years of experience in data engineering, algorithm development, AI systems, and API development. Expertise in big data analytics, conversational AI (RAG architectures), computer vision (object detection, video processing), and optimization algorithms. Background spanning Computer Science, Industrial Engineering, and AI enables bridging technical implementation with business optimization.
 
 TECHNICAL SKILLS
 - Languages: Java, Python, MATLAB, SQL
@@ -19,14 +19,11 @@ TECHNICAL SKILLS
 - Cloud & DevOps: AWS (Technical Essentials certified), CI/CD, Microservices Architecture
 
 WORK EXPERIENCE
-1. Data Engineer — Jotun, Sandefjord (Aug 2026 – Present)
-   Current role. Global coatings company; project: Hull Skating Solutions (HSS)
-   - Data Engineer on Jotun Hull Skating Solutions (HSS) in Sandefjord, Norway
-   - Builds and maintains data pipelines, analytics, and predictive models for fouling prediction and proactive hull maintenance timing
-   - Works with big data trends, algorithms, oceanographic assessment, and condition-monitoring data that advise when to deploy the HullSkater
-   - Supports data-driven scheduling for 24/7 remote HullSkater operations run from global "follow the sun" operating hubs
-   - Contributes to a solution aimed at reducing fuel costs, GHG emissions, and invasive-species spread via always-clean hull performance
-   - Official product page: https://www.jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
+1. Hull Skating Solutions (HSS) — Jotun, Sandefjord (Aug 2026 – Present)
+   Martin works at Jotun with Hull Skating Solutions (HSS).
+   Jotun policy: do NOT share job title, responsibilities, tools, technologies, or any other details of Martin's role.
+   For HSS information, always share this official page:
+   https://www.jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
 
 2. Software Engineer — Allente AS, Oslo (Aug 2024 – Mar 2026)
    Nordic telecommunications company providing streaming and TV services
@@ -82,46 +79,18 @@ Public access: 2 articles available, 1 not available
 
 CERTIFICATION: AWS Technical Essentials — Amazon Web Services
 LANGUAGES: English (Fluent), Norwegian (Elementary), Persian (Native)
-Currently working as Data Engineer at Jotun on Hull Skating Solutions in Sandefjord.
+Currently at Jotun, working with Hull Skating Solutions (HSS) in Sandefjord.
 
-===== CURRENT ROLE & PROJECT: Jotun Hull Skating Solutions (HSS) =====
+===== JOTUN / HSS (POLICY — ROLE DETAILS MUST NOT BE SHARED) =====
 
-What Martin does now:
-Martin is a Data Engineer at Jotun in Sandefjord, Norway (started August 2026). His current project is Hull Skating Solutions (HSS). He focuses on data engineering for predictive hull maintenance — pipelines, analytics, and fouling-prediction support that help time when vessels should run proactive cleaning with the HullSkater.
+Martin works at Jotun in Sandefjord, Norway (started August 2026) with Hull Skating Solutions (HSS).
 
-What is Hull Skating Solutions (HSS)?
-Jotun Hull Skating Solutions is an integrated maritime hull-performance solution. Tagline: "Always clean hull — even for the most challenging operations." It uses proactive cleaning to combat early-stage biofouling so ships keep a clean hull. A clean hull reduces fuel costs, greenhouse gas emissions, and the spread of invasive species. DNV has verified that vessels operating under Jotun HSS achieve an always-clean hull with no measurable speed loss.
-
-The five key elements of HSS:
-1. High-performance coatings — SeaQuantum Skate antifouling coating, developed specifically for use with HullSkater technology. Based on 20+ years of SeaQuantum silyl acrylate R&D. It is the only coating tailored for Hull Skating, verified by Lloyd's Register.
-2. Proactive condition monitoring — In-house analysts make fouling predictions from big data trends, algorithms, and analyses, and advise customers when to carry out hull maintenance. Includes oceanographic assessment for fouling prediction so Skate Operators can time HullSkater deployment.
-3. Inspection and proactive cleaning — The HullSkater is a robotic device designed for proactive cleaning. It inspects and removes fouling without damaging the antifouling coating. It stays onboard the vessel, so it is always available in harbour or at anchor.
-4. High-end technical service — Coating advisors ensure high-quality coating application with documented quality control. Certified project managers oversee application and robotics setup. HullSkater is remotely operated by Skate Operators in global "follow the sun" hubs for 24/7 support.
-5. Clean hull guarantee — Performance and service-level guarantees for challenging operations.
-
-Why HSS matters (problems it solves):
-- Biofouling on ship hulls increases drag, fuel consumption, and emissions.
-- Challenging operational profiles (idle time, warm waters, complex routes) accelerate fouling and hurt efficiency.
-- Traditional reactive cleaning is often too late; HSS focuses on early-stage, proactive cleaning.
-- Helps shipping companies meet sustainability and biodiversity goals (cleaner operations, less invasive-species transfer).
-
-Key products / terms the chatbot should recognize:
-- HSS / Hull Skating Solutions / Hull Skating
-- HullSkater (onboard robotic inspection and cleaning device)
-- SeaQuantum Skate (coating paired with HullSkater)
-- Proactive condition monitoring / fouling prediction
-- Jotun (company), Sandefjord (Martin's work location)
-- DNV verification (always-clean hull, no measurable speed loss)
-- Lloyd's Register verification (SeaQuantum Skate for Hull Skating)
-
-Martin's angle as Data Engineer (how to describe his contribution):
-- Data pipelines and analytics feeding fouling prediction and maintenance timing
-- Support for predictive / condition-based hull maintenance
-- Data that helps operators decide when to deploy the HullSkater
-- Contribution to a maritime sustainability solution (fuel, emissions, invasive species)
-
-Public reference:
+STRICT POLICY:
+- Do NOT mention a job title at Jotun (including "Data Engineer" or "dataingeniør").
+- Do NOT describe Martin's responsibilities, daily work, tools, technologies, pipelines, analytics, or any other role details at Jotun.
+- Only mention that he works at Jotun with HSS, and always provide this official link:
 https://www.jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
+- If asked what HSS is, what Martin does at Jotun, or for product/role details: say he works with HSS at Jotun and share the official link. Do not invent or expand on internals.
 
 ===== PAPER 1: SmartCrop — AI-Based Cropping of Soccer Videos (IEEE ISM 2023) =====
 
@@ -169,21 +138,22 @@ Subjective Evaluation: 26 participants rated six cropping alternatives across fo
 Conclusion: Domain-specific adaptation is critical — techniques validated on soccer do not transfer directly to hockey. The combination of hockey-specific YOLO detector, IQR outlier detection with Y-axis spatial prior, and EMA smoothing measurably improves viewer QoE. Future work: extending beyond puck-centric cropping to incorporate player positions and broader game context.
 `;
 
-const SYSTEM_PROMPT = `You are Martin's AI assistant on his personal portfolio website (majidi.no). You answer questions about Martin Majidi based on his CV, academic transcript, research publications, and his current work at Jotun on Hull Skating Solutions (HSS).
+const SYSTEM_PROMPT = `You are Martin's AI assistant on his personal portfolio website (majidi.no). You answer questions about Martin Majidi based on his CV, academic transcript, research publications, and that he currently works at Jotun with Hull Skating Solutions (HSS).
 
 Rules:
 - LANGUAGE: Always respond in the same language the user writes in. If the user writes in Norwegian (norsk), respond entirely in Norwegian. If the user writes in English, respond in English. This is mandatory.
 - Only answer questions related to Martin's professional background, skills, experience, education, academic courses, projects (including HSS / Hull Skating Solutions), publications, and contact info.
 - Be conversational, friendly, and professional.
 - If asked something not covered in the provided data, politely say you don't have that information and suggest contacting Martin directly.
-- Keep answers concise but informative (2-4 sentences typically). For detailed questions about SmartCrop research or HSS, you may give longer answers drawing from the detailed sections.
+- Keep answers concise but informative (2-4 sentences typically). For detailed questions about SmartCrop research, you may give longer answers drawing from the detailed sections.
 - You can mention that this chatbot itself is a live demo of Martin's RAG chatbot expertise.
 - Do not make up information not present in the provided data.
 - When listing items, use short bullet points.
 - If asked "who are you" or similar, explain you are an AI assistant built to answer questions about Martin, powered by RAG (Retrieval-Augmented Generation) and GPT-4o-mini.
 - When asked about SmartCrop, the thesis, or the research papers, use the detailed paper summaries to give specific technical answers (pipeline modules, evaluation results, model performance numbers, etc.).
-- When asked about Jotun, his current job, Data Engineer role, HSS, Hull Skating Solutions, HullSkater, SeaQuantum Skate, fouling, or clean hull — use the detailed HSS section. Explain both what Martin does (data engineering for predictive hull maintenance) and what the product/solution is.
-- If asked where Martin works now or what his current role is, lead with: Data Engineer at Jotun in Sandefjord on Hull Skating Solutions (HSS), since August 2026.
+- JOTUN POLICY: Never share details of Martin's role at Jotun. Do not mention a job title. Do not describe responsibilities, tools, or technical work there.
+- When asked about Jotun, his current job, current role, HSS, or Hull Skating Solutions: say only that he works at Jotun in Sandefjord with Hull Skating Solutions (HSS), since August 2026, and always include this link: https://www.jotun.com/ww-en/products-and-services/solutions-and-brands/hull-skating-solutions/overview
+- If asked what he does at Jotun or for HSS product details, do not elaborate. Point to the official Jotun HSS page.
 
 Martin's data (CV + transcript + research papers + HSS):
 ${CV_CONTEXT}`;

@@ -29,8 +29,8 @@
   };
 
   const WELCOME = {
-    en: "Hi! I'm Martin's AI assistant — a CV-based demo, similar to the HR chatbot he built at Allente. Ask about his role at Jotun, Hull Skating Solutions (HSS), skills, or publications!",
-    no: 'Hei! Jeg er Martins AI-assistent — en CV-basert demo, lik HR-chatboten han bygde hos Allente. Spør om jobben hos Jotun, Hull Skating Solutions (HSS), ferdigheter eller publikasjoner!',
+    en: "Hi! I'm Martin's AI assistant — a CV-based demo, similar to the HR chatbot he built at Allente. Ask about Hull Skating Solutions (HSS), skills, or publications!",
+    no: 'Hei! Jeg er Martins AI-assistent — en CV-basert demo, lik HR-chatboten han bygde hos Allente. Spør om Hull Skating Solutions (HSS), ferdigheter eller publikasjoner!',
   };
 
   const PLACEHOLDER = {

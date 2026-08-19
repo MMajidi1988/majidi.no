@@ -26,3 +26,19 @@ body {
   background: var(--warm);
   color: #1a1a1a;
 }
+
+.hs a,
+.at a,
+.sb a {
+  color: var(--acc2);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--acc2) 45%, transparent);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hs a:hover,
+.at a:hover,
+.sb a:hover {
+  color: var(--warm2);
+  border-bottom-color: var(--warm2);
+}
