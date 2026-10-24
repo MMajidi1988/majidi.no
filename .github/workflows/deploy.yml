@@ -92,7 +92,8 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     env:
-      URL: ${{ needs.deploy.outputs.url }}
+      # Deployment URLs sit behind Vercel Authentication; only the custom domain is public
+      URL: ${{ needs.deploy.outputs.prod == 'true' && 'https://www.majidi.no' || needs.deploy.outputs.url }}
       BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
       PROD: ${{ needs.deploy.outputs.prod }}
     steps:
