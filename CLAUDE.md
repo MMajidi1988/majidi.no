@@ -33,7 +33,7 @@ Deployment runs on Vercel via `.github/workflows/deploy.yml`. PRs to `main` get 
 
 ### Telegram bot
 - `api/_telegram.js` provides `sendTelegram(text, chatId?)`. The leading `_` means Vercel doesn't expose it as an endpoint. It never throws and does nothing when `TELEGRAM_BOT_TOKEN` or `TELEGRAM_CHAT_ID` is unset, so local dev without them is fine.
-- `api/chat.js` pings each visitor question (💬) and each OpenAI error (⚠️), and awaits the ping before `res.end()` so Vercel doesn't freeze it mid-send. Requests with the `x-smoke-test` header (sent by the deploy smoke test) are not pinged.
+- `api/chat.js` sends one ping per exchange: the visitor's question (💬) plus either the full answer (🤖) or the OpenAI error (⚠️). It awaits the ping after `[DONE]` and before `res.end()`, so Vercel doesn't freeze it mid-send. Requests with the `x-smoke-test` header (sent by the deploy smoke test) are not pinged.
 - `api/telegram.js` is the bot's webhook. It requires the `X-Telegram-Bot-Api-Secret-Token` header to match `TELEGRAM_WEBHOOK_SECRET` and the chat ID to match `TELEGRAM_CHAT_ID`. `/do <task>` sends a `claude-task` `repository_dispatch` using `GITHUB_DISPATCH_TOKEN`.
 - `.github/workflows/claude-task.yml` runs Claude Code on that task, which only edits files. `peter-evans/create-pull-request` then opens the PR using `BOT_PAT`. It can't use `GITHUB_TOKEN`, because PRs opened with that don't trigger `deploy.yml`. The PR link is reported back to Telegram.
 - `deploy.yml`'s `notify` job and `notify-issues.yml` post to Telegram with `curl` and `jq`. Issue fields reach the script only through `env:`, never through `${{ }}` inside `run:`.
