@@ -113,10 +113,42 @@ jobs:
       - name: Chat API streams a reply
         if: env.SKIP_API != '1'
         run: |
-          headers=(-H 'Content-Type: application/json')
+          headers=(-H 'Content-Type: application/json' -H 'x-smoke-test: 1')
           [ -n "$BYPASS" ] && headers+=(-H "x-vercel-protection-bypass: $BYPASS")
           curl -sS -N --max-time 30 "${headers[@]}" \
             -d '{"messages":[{"role":"user","content":"hi"}]}' \
             "$URL/api/chat" > chat.txt || true
           head -c 500 chat.txt; echo
           grep -q '^data: {"content"' chat.txt || { echo "::error::/api/chat did not stream content (check OPENAI_API_KEY in Vercel)"; exit 1; }
+
+  notify:
+    needs: [check, deploy, smoke]
+    if: always() && needs.check.result != 'cancelled'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CHECK: ${{ needs.check.result }}
+          DEPLOY: ${{ needs.deploy.result }}
+          SMOKE: ${{ needs.smoke.result }}
+          PROD: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+          URL: ${{ needs.deploy.outputs.url }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          COMMIT_MSG: ${{ github.event.head_commit.message || github.event.pull_request.title }}
+        run: |
+          [ -n "$TELEGRAM_BOT_TOKEN" ] || { echo "Telegram secrets not set; skipping"; exit 0; }
+          target=$([ "$PROD" = "true" ] && echo "Production" || echo "Preview")
+          if [ "$DEPLOY" = "success" ] && [ "$SMOKE" = "success" ]; then
+            text="✅ $target deploy succeeded"$'\n'"$URL"
+          else
+            text="❌ $target deploy failed (check: $CHECK, deploy: $DEPLOY, smoke: $SMOKE)"
+          fi
+          text="$text"$'\n'"$(echo "$COMMIT_MSG" | head -n1)"$'\n'"Run: $RUN_URL"
+          jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$text" \
+            '{chat_id: $chat, text: $text, disable_web_page_preview: true}' |
+            curl -sS -H 'Content-Type: application/json' -d @- \
+              "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > tg.json || true
+          # A failed notification should not fail the run; surface Telegram's reason instead
+          grep -q '"ok":true' tg.json || echo "::warning::Telegram rejected the message: $(cat tg.json)"

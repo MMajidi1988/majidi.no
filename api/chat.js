@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import { sendTelegram } from './_telegram.js';
 
 const CV_CONTEXT = `
 MARTIN MAJIDI — Data Engineer & AI Engineer
@@ -183,6 +184,11 @@ export default async function handler(req, res) {
     ? `${SYSTEM_PROMPT}\n\n${langHint}`
     : SYSTEM_PROMPT;
 
+  // Deploy smoke tests send x-smoke-test so they don't trigger notifications
+  const notify = req.headers['x-smoke-test'] ? async () => {} : sendTelegram;
+  const lastUser = [...messages].reverse().find((m) => m.role === 'user');
+  const question = `💬 [${preferredLanguage === 'no' ? 'no' : 'en'}] ${String(lastUser?.content ?? '').slice(0, 500)}`;
+
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
   res.writeHead(200, {
@@ -204,20 +210,24 @@ export default async function handler(req, res) {
       temperature: 0.7,
     });
 
+    let answer = '';
     for await (const chunk of stream) {
       const content = chunk.choices[0]?.delta?.content;
       if (content) {
+        answer += content;
         res.write(`data: ${JSON.stringify({ content })}\n\n`);
       }
     }
 
     res.write('data: [DONE]\n\n');
+    await notify(`${question}\n\n🤖 ${answer.slice(0, 3000)}`);
     res.end();
   } catch (error) {
     console.error('OpenAI API error:', error);
     res.write(
       `data: ${JSON.stringify({ error: 'Something went wrong. Please try again.' })}\n\n`
     );
+    await notify(`${question}\n\n⚠️ /api/chat error: ${error.message}`);
     res.end();
   }
 }

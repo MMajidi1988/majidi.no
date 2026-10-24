@@ -1,0 +1,82 @@
+name: Claude task
+
+# Started by the Telegram bot (/do <task>) via api/telegram.js
+on:
+  repository_dispatch:
+    types: [claude-task]
+
+concurrency:
+  group: claude-task
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  task:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TASK: ${{ github.event.client_payload.task }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Let Claude make the change
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          claude_args: --model claude-sonnet-5-5 --max-turns 30
+          prompt: |
+            You are working on the majidi.no website repository. Follow CLAUDE.md.
+            Make the change requested below by editing files in the working tree.
+            Do not commit, push, or open a pull request; the workflow does that.
+            Keep the change focused on the request.
+
+            Request:
+            ${{ github.event.client_payload.task }}
+
+      - name: Build PR title
+        id: meta
+        run: |
+          title="$(echo "$TASK" | head -n1 | cut -c1-70)"
+          echo "title=Claude: $title" >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        id: pr
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.BOT_PAT }}
+          branch: claude/task-${{ github.run_id }}
+          title: ${{ steps.meta.outputs.title }}
+          commit-message: ${{ steps.meta.outputs.title }}
+          body: |
+            Requested from Telegram:
+
+            > ${{ github.event.client_payload.task }}
+
+            Made by Claude in [this run](${{ env.RUN_URL }}). Review the preview deploy before merging.
+
+      - name: Report to Telegram
+        if: always()
+        env:
+          OUTCOME: ${{ job.status }}
+          PR_URL: ${{ steps.pr.outputs.pull-request-url }}
+        run: |
+          [ -n "$TELEGRAM_BOT_TOKEN" ] || exit 0
+          if [ "$OUTCOME" != "success" ]; then
+            text="❌ Task failed: $TASK"$'\n'"$RUN_URL"
+          elif [ -n "$PR_URL" ]; then
+            text="✅ PR ready: $PR_URL"$'\n'"A preview deploy link will follow."
+          else
+            text="ℹ️ Claude made no changes for: $TASK"$'\n'"$RUN_URL"
+          fi
+          jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$text" \
+            '{chat_id: $chat, text: $text, disable_web_page_preview: true}' |
+            curl -sS -H 'Content-Type: application/json' -d @- \
+              "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > tg.json || true
+          # A failed notification should not fail the run; surface Telegram's reason instead
+          grep -q '"ok":true' tg.json || echo "::warning::Telegram rejected the message: $(cat tg.json)"
