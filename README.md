@@ -81,8 +81,18 @@ npx vercel dev
 
 ## Deploy
 
-- **Vercel** (recommended) — Connect the repo, set root directory to `majidi.no`, and add `OPENAI_API_KEY` in Environment Variables.
-- **GitHub Pages** — Static site works, but the chatbot API requires Vercel or another serverless provider.
+Deploys run from GitHub Actions ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)). Vercel's own Git auto-deploy is disabled in `vercel.json`.
+
+- **Pull request to `main`**: checks → preview deploy → smoke test. The preview URL is posted as a PR comment.
+- **Push to `main`**: checks → production deploy → smoke test.
+- **Manual**: Actions → Deploy → Run workflow.
+
+The smoke test loads `/` and confirms `/api/chat` streams a reply.
+
+One-time setup:
+- **GitHub repo secrets:** `VERCEL_TOKEN` (create it under Vercel → Account Settings → Tokens), plus `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` (copy them from `.vercel/project.json` after `vercel link`).
+- **Optional secret:** `VERCEL_AUTOMATION_BYPASS_SECRET`, so smoke tests can reach previews behind Deployment Protection.
+- **Vercel:** set `OPENAI_API_KEY` for both the Production and Preview environments.
 
 ## License
 
