@@ -1,0 +1,121 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund
+
+      - name: Syntax-check browser scripts
+        run: for f in js/*.js; do node --check "$f"; done
+
+      - name: Import serverless function
+        run: node -e "import('./api/chat.js').then(m => { if (typeof m.default !== 'function') throw new Error('api/chat.js has no default export'); })"
+
+      - name: Every component stylesheet is imported in main.css
+        run: |
+          missing=0
+          for f in css/components/*.css; do
+            if ! grep -q "@import 'components/$(basename "$f")'" css/main.css; then
+              echo "::error file=css/main.css::$f is not imported"
+              missing=1
+            fi
+          done
+          exit $missing
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && 'production' || 'preview' }}
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      PROD: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
+      prod: ${{ env.PROD }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --global vercel@latest
+
+      - name: Pull Vercel settings and env
+        run: vercel pull --yes --environment=${{ env.PROD == 'true' && 'production' || 'preview' }} --token="$VERCEL_TOKEN"
+
+      - name: Build
+        run: vercel build ${{ env.PROD == 'true' && '--prod' || '' }} --token="$VERCEL_TOKEN"
+
+      - name: Deploy
+        id: deploy
+        run: |
+          url=$(vercel deploy --prebuilt ${{ env.PROD == 'true' && '--prod' || '' }} --token="$VERCEL_TOKEN")
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed to $url" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment preview URL on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Preview deployed: ${{ steps.deploy.outputs.url }}`,
+            });
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    env:
+      URL: ${{ needs.deploy.outputs.url }}
+      BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+      PROD: ${{ needs.deploy.outputs.prod }}
+    steps:
+      - name: Page loads
+        run: |
+          headers=()
+          [ -n "$BYPASS" ] && headers=(-H "x-vercel-protection-bypass: $BYPASS")
+          status=$(curl -sS -o page.html -w '%{http_code}' "${headers[@]}" "$URL/")
+          if [ "$status" = "401" ] && [ "$PROD" != "true" ] && [ -z "$BYPASS" ]; then
+            echo "::warning::Preview is behind Deployment Protection; set VERCEL_AUTOMATION_BYPASS_SECRET to smoke-test previews."
+            echo "SKIP_API=1" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          [ "$status" = "200" ] || { echo "::error::GET / returned $status"; exit 1; }
+          grep -q '<title' page.html || { echo "::error::No <title> in page"; exit 1; }
+
+      - name: Chat API streams a reply
+        if: env.SKIP_API != '1'
+        run: |
+          headers=(-H 'Content-Type: application/json')
+          [ -n "$BYPASS" ] && headers+=(-H "x-vercel-protection-bypass: $BYPASS")
+          curl -sS -N --max-time 30 "${headers[@]}" \
+            -d '{"messages":[{"role":"user","content":"hi"}]}' \
+            "$URL/api/chat" > chat.txt || true
+          head -c 500 chat.txt; echo
+          grep -q '^data: {"content"' chat.txt || { echo "::error::/api/chat did not stream content (check OPENAI_API_KEY in Vercel)"; exit 1; }
