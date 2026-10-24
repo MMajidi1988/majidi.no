@@ -94,6 +94,34 @@ One-time setup:
 - **Optional secret:** `VERCEL_AUTOMATION_BYPASS_SECRET`, so smoke tests can reach previews behind Deployment Protection.
 - **Vercel:** set `OPENAI_API_KEY` for both the Production and Preview environments.
 
+## Telegram bot
+
+A Telegram bot notifies the owner of:
+- deploy results
+- chatbot questions and chatbot errors
+- new GitHub issues
+
+It also takes `/do <task>`: Claude Code makes the change and opens a PR, and the bot replies with the PR link.
+
+| Where | Name | Value |
+|-------|------|-------|
+| Vercel (Production) | `TELEGRAM_BOT_TOKEN` | from @BotFather |
+| Vercel (Production) | `TELEGRAM_CHAT_ID` | your chat ID |
+| Vercel (Production) | `TELEGRAM_WEBHOOK_SECRET` | random string, also given to `setWebhook` |
+| Vercel (Production) | `GITHUB_DISPATCH_TOKEN` | fine-grained PAT for this repo: Contents + Pull requests read/write |
+| GitHub secret | `TELEGRAM_BOT_TOKEN` | same as above |
+| GitHub secret | `TELEGRAM_CHAT_ID` | same as above |
+| GitHub secret | `ANTHROPIC_API_KEY` | from console.anthropic.com |
+| GitHub secret | `BOT_PAT` | same PAT as `GITHUB_DISPATCH_TOKEN` |
+
+Register the webhook once:
+
+```bash
+curl "https://api.telegram.org/bot<TOKEN>/setWebhook" \
+  -d url=https://www.majidi.no/api/telegram \
+  -d secret_token=<TELEGRAM_WEBHOOK_SECRET>
+```
+
 ## License
 
 © Martin Majidi. All rights reserved.

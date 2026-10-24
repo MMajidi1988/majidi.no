@@ -1,0 +1,29 @@
+name: Notify issues
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+jobs:
+  telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Untrusted input: only ever read through env, never interpolated into the script
+          NUMBER: ${{ github.event.issue.number }}
+          TITLE: ${{ github.event.issue.title }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          BODY: ${{ github.event.issue.body }}
+          LINK: ${{ github.event.issue.html_url }}
+        run: |
+          [ -n "$TELEGRAM_BOT_TOKEN" ] || { echo "Telegram secrets not set; skipping"; exit 0; }
+          jq -n --arg chat "$TELEGRAM_CHAT_ID" \
+            --arg text "🐛 New issue #$NUMBER by $AUTHOR"$'\n'"$TITLE"$'\n\n'"${BODY:0:500}"$'\n\n'"$LINK" \
+            '{chat_id: $chat, text: $text, disable_web_page_preview: true}' |
+            curl -sS -f -H 'Content-Type: application/json' -d @- \
+              "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null
