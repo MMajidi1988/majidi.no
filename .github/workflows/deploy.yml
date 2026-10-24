@@ -101,7 +101,8 @@ jobs:
           headers=()
           [ -n "$BYPASS" ] && headers=(-H "x-vercel-protection-bypass: $BYPASS")
           status=$(curl -sS -o page.html -w '%{http_code}' "${headers[@]}" "$URL/")
-          if [ "$status" = "401" ] && [ "$PROD" != "true" ] && [ -z "$BYPASS" ]; then
+          # Vercel Authentication answers 401 or redirects (302/307) to its login page
+          if [[ "$status" =~ ^(401|302|307)$ ]] && [ "$PROD" != "true" ] && [ -z "$BYPASS" ]; then
             echo "::warning::Preview is behind Deployment Protection; set VERCEL_AUTOMATION_BYPASS_SECRET to smoke-test previews."
             echo "SKIP_API=1" >> "$GITHUB_ENV"
             exit 0
